@@ -4,8 +4,15 @@
   font-weight: normal;
   font-style: normal; }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+    color: white; }
+  h1 {
+    color: #003c8f; } }
+
 * {
   font-family: "JetBrians Mono"; }
 
 h1 {
-  color: #003c8f; }
+  color: #1565c0; }
