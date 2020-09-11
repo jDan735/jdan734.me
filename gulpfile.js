@@ -8,32 +8,19 @@ const watch = require("gulp-watch")
 /* Watchers */
 
 function html(){
-    return watch('./pug/*.pug', () => {
-        return src('./pug/*.pug')
+    return watch('./dev/pug/*.pug', () => {
+        return src('./dev/pug/*.pug')
                .pipe(pug())
                .pipe(dest('./'))
     })
 }
 
 function css(){
-    return watch('./sass/*.sass', () => {
-        return src('./sass/*.sass')
+    return watch('./dev/sass/*.sass', () => {
+        return src('./dev/sass/*.sass')
                .pipe(sass())
-               .pipe(dest('./css'))
+               .pipe(dest('./static/css'))
     })
 }
-
-task("sass", () => {
-    return src('./sass/*.sass')
-           .pipe(sass())
-//           .pipe(csscomb())
-           .pipe(dest('./css'))
-})
-
-task("pug", () => {
-    return src('./pug/*.pug')
-           .pipe(pug())
-           .pipe(dest('./'))
-})
 
 exports.default = parallel(html, css)
