@@ -8,6 +8,12 @@ def index():
         return index.read()
 
 
+@app.route('/a')
+def a():
+    with open("a.html", encoding="utf-8") as af:
+        return af.read()
+
+
 @app.route('/obama')
 def sosat():
     return "sosat"
