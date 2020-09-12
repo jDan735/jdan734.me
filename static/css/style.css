@@ -15,31 +15,46 @@
     background: black;
     color: white; }
   h1 {
-    color: #9f0000; }
+    color: #d84315; }
   a {
-    color: #003c8f; }
+    color: #1565c0; }
   .error {
-    color: #9b0000; } }
+    color: #9b0000; }
+  .green {
+    color: #64dd17; } }
 
 * {
-  font-family: "JetBrians Mono"; }
+  font-family: "JetBrians Mono";
+  word-wrap: break-word; }
+
+html {
+  font-size: 14px; }
 
 body {
   padding: .5em; }
 
 p {
-  font-size: 1em; }
+  font-size: 1.2em; }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
   text-decoration: none; }
 
 a {
-  color: #1565c0; }
+  color: #003c8f; }
 
 h1 {
-  color: #d84315;
+  color: #9f0000;
   font-size: 3em;
   margin: 0; }
 
+h2 {
+  font-size: 2em; }
+
+h3 {
+  font-size: 1.5em; }
+
 .error {
   color: #d50000; }
+
+.green {
+  color: #1faa00; }
