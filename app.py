@@ -49,7 +49,7 @@ def wiki(page_name):
         with open("404.html", encoding="utf-8") as index:
             return index.read()
 
-    head = '<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/static/css/style.css?v=1.5.7" /><link rel="stylesheet" href="/static/css/wiki.css?v=1.5.7"/><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
+    head = '<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/static/css/style.css?v=1.5.7" /><link rel="stylesheet" href="/static/css/wiki.css?v=1.5.8"/><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
 
     h1 = f'<h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
