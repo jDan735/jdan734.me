@@ -28,13 +28,13 @@ def wiki(page_name):
         with open("404.html", encoding="utf-8") as index:
             return index.read()
 
+    head = '<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/static/css/style.css?v=1.4.1" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
     style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/>'
     h1 = f'<h1>{search[0][0]}</h1>'
-    # image_url = wiki.getImageByPageName(search[0][0], 400)
-    # full_image_url = wiki.getImageByPageName(search[0][0], 400)
-    # img = f'<a href="{full_image_url}"><img style="float: right; margin: 20px;" src="{image_url}"></a>'
-    img = ""
-    result = style + h1 + img + str(wiki.getPage(search[0][0], -1))
+    image_url = wiki.getImageByPageName(search[0][0], 400)
+    full_image_url = wiki.getImageByPageName(search[0][0], 400)
+    img = f'<a href="{full_image_url}"><img style="float: right; margin: 20px;" src="{image_url}"></a>'
+    result = head + style + h1 + img + str(wiki.getPage(search[0][0], -1))
 
     return result
 
