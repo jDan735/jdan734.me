@@ -20,27 +20,43 @@ def sosat():
     return "sosat"
 
 
+def makeBelarus(text):
+    return text.replace("белорусс", "беларус") \
+               .replace("Белорусс", "Беларус") \
+               .replace("Белор", "Белар")
+
+
 @app.route('/wiki/<page_name>')
 def wiki(page_name):
     wiki = Wikipedia("ru")
     search = wiki.search(page_name)
+
     if search == -1:
         with open("404.html", encoding="utf-8") as index:
             return index.read()
 
     head = '<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/static/css/style.css?v=1.4.1" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
+
+    h1 = f'<h1>{makeBelarus(search[0][0])}</h1>'
+    page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/>'
-    h1 = f'<h1>{search[0][0]}</h1>'
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
+
+    if image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/400px-Flag_of_Belarus.svg.png":
+        image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/400px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
 
     if image_url == -1:
         img = ""
     else:
         full_image_url = wiki.getImageByPageName(search[0][0], 400)
+
+        if full_image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/1000px-Flag_of_Belarus.svg.png":
+            full_image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/1000px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
+
         img = f'<a href="{full_image_url}"><img class="wiki_photo" src="{image_url}"></a>'
 
-    result = head + style + h1 + img + str(wiki.getPage(search[0][0], -1))
+    result = head + style + h1 + img + page
 
     return result
 
