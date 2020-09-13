@@ -1,4 +1,5 @@
 from flask import Flask
+from wikipedia import Wikipedia
 app = Flask(__name__)
 
 
@@ -19,6 +20,24 @@ def sosat():
     return "sosat"
 
 
+@app.route('/wiki/<page_name>')
+def wiki(page_name):
+    wiki = Wikipedia("ru")
+    search = wiki.search(page_name)
+    if search == -1:
+        with open("404.html", encoding="utf-8") as index:
+            return index.read()
+
+    style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/>'
+    h1 = f'<h1>{search[0][0]}</h1>'
+    image_url = wiki.getImageByPageName(search[0][0], 400)
+    full_image_url = wiki.getImageByPageName(search[0][0], 400)
+    img = f'<a href="{full_image_url}"><img style="float: right; margin: 20px;" src="{image_url}"></a>'
+    result = style + h1 + img + str(wiki.getPage(search[0][0], -1))
+
+    return result
+
+
 @app.errorhandler(404)
 def not_found(error):
     with open("404.html", encoding="utf-8") as index:
@@ -36,4 +55,4 @@ def lorem():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run("localhost")
