@@ -1,6 +1,5 @@
 from flask import Flask
 from wikipedia import Wikipedia
-import os
 app = Flask(__name__)
 
 
@@ -31,9 +30,10 @@ def wiki(page_name):
 
     style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/>'
     h1 = f'<h1>{search[0][0]}</h1>'
-    image_url = wiki.getImageByPageName(search[0][0], 400)
-    full_image_url = wiki.getImageByPageName(search[0][0], 400)
-    img = f'<a href="{full_image_url}"><img style="float: right; margin: 20px;" src="{image_url}"></a>'
+    # image_url = wiki.getImageByPageName(search[0][0], 400)
+    # full_image_url = wiki.getImageByPageName(search[0][0], 400)
+    # img = f'<a href="{full_image_url}"><img style="float: right; margin: 20px;" src="{image_url}"></a>'
+    img = ""
     result = style + h1 + img + str(wiki.getPage(search[0][0], -1))
 
     return result
