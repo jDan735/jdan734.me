@@ -33,7 +33,7 @@ def wiki(page_name):
     h1 = f'<h1>{search[0][0]}</h1>'
     image_url = wiki.getImageByPageName(search[0][0], 400)
     full_image_url = wiki.getImageByPageName(search[0][0], 400)
-    img = f'<a href="{full_image_url}"><img style="float: right; margin: 20px;" src="{image_url}"></a>'
+    img = f'<a href="{full_image_url}"><img class="wiki_photo" src="{image_url}"></a>'
     result = head + style + h1 + img + str(wiki.getPage(search[0][0], -1))
 
     return result
