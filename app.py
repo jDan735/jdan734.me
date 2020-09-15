@@ -18,6 +18,11 @@ def sosat():
     return "sosat"
 
 
+@app.route('/kanobu')
+def kanobu():
+    return page("kanobu.html")
+
+
 def makeBelarus(text):
     namelist = [
         ["Белоруссия", "Беларусь"],
