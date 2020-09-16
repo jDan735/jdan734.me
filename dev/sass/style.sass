@@ -30,6 +30,7 @@
 @media screen and (device-width: 320px)
     html 
         font-size: 25px
+        background-image: none
 
     h1
         font-size: 2em
@@ -38,10 +39,21 @@
         font-size: .3em
 
     body
-        margin-right: 0
+        margin: 0
+        padding: .5em
 
-    html
-        background-image: none
+
+@media (min-width: 1365px) 
+    body
+        padding: 2em
+        margin: 0
+        margin-right: 600px
+        background: white
+
+    html  
+        background-image: url("https://2ch.hk/dr/src/235939/15572164908060.png") 
+        background-repeat: repeat-x
+        backround-position: right
 
 @media screen and (max-width: 439px)
     img
@@ -54,15 +66,9 @@
 
 html
     font-size: 14px
-    background-image: url("https://2ch.hk/dr/src/235939/15572164908060.png") 
-    background-repeat: repeat-x
-    backround-position: right
 
 body
     padding: 2em
-    margin: 0
-    margin-right: 600px
-    background: white
 
 p, pre
     font-size: 1.2em
