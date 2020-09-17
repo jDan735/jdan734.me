@@ -23,6 +23,12 @@ def kanobu():
     return page("kanobu.html")
 
 
+
+@app.route('/timer')
+def timer():
+    return page("timer.html")
+
+
 def makeBelarus(text):
     namelist = [
         ["Белоруссия", "Беларусь"],
