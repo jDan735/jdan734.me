@@ -64,7 +64,7 @@ def wiki(page_name):
     h1 = f'<h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     title = f'<title>{makeBelarus(search[0][0])}</title>'
-    style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/static/css/wiki.css?v=1.8.0"/>'
+    style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/static/css/wiki.css?v=1.8.1"/>'
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
