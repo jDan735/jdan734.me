@@ -8,6 +8,13 @@ def page(file_name):
         return file.read()
 
 
+@app.before_request
+def before_request():
+    if not Flask.request.is_secure and app.env != "development":
+        url = Flask.request.url.replace("http://", "https://", 1)
+        return Flask.redirect(url, code=301)
+
+
 @app.route('/')
 def index():
     return page("index.html")
