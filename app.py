@@ -9,13 +9,34 @@ def page(file_name):
 
 
 pages = {
-    "index": page("index.html")
+    "index": page("index.html"),
+    "kanobu": page("kanobu.html"),
+    "timer": page("timer.html"),
+    "404": page("404.html"),
+    "lorem": page("lorem.html")
 }
 
 
-@app.route('/')
+@app.route("/")
 def index():
-    return page("index.html")
+    return pages["index"]
+
+
+@app.route("/kanobu/server")
+def kanobu_server():
+    return {
+        "game": "kanobu",
+        "users": ["ban", "obama", "3nr3"],
+        "time": 1,
+        "ban": True
+    }
+
+
+@app.route("/kanobu/server/<user>")
+def kanobu_server_user(user):
+    return {
+        "user": user
+    }
 
 
 @app.route('/obama')
@@ -25,12 +46,12 @@ def sosat():
 
 @app.route('/kanobu')
 def kanobu():
-    return page("kanobu.html")
+    return pages["kanobu"]
 
 
 @app.route('/timer')
 def timer():
-    return page("timer.html")
+    return pages["timer"]
 
 
 def makeBelarus(text):
@@ -96,7 +117,7 @@ def wiki(page_name):
 
 @app.errorhandler(404)
 def not_found(error):
-    return page("404.html")
+    return pages["404"]
 
 
 @app.errorhandler(505)
@@ -106,7 +127,7 @@ def not_found_shizha(error):
 
 @app.route('/lorem')
 def lorem():
-    return page("lorem.html")
+    return pages["lorem"]
 
 
 if __name__ == '__main__':

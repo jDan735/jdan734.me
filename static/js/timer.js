@@ -1,6 +1,6 @@
 var starts = moment('2020-06-18 01:38:41')
 
- function timer(){
+function timer(){
     var ends = moment()
 
     times = [
