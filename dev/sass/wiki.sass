@@ -2,37 +2,50 @@
     h1
         color: white !important
 
-@media screen and (min-width: 1280px)
+@media screen and (min-width: 1px) and (max-width: 767px)
     body, img
         padding: 0
-        margin: 35px !important
+        margin: 0
+
+    img
+        margin-top: 0
+
+    .page
+        padding: 20px
+        padding-top: 0
+
+        p
+            margin-top: 0
+
+    h1
+        padding-top: 0.3em
+        padding-bottom: 0.3em
+        margin: 0
+
+@media screen and (min-width: 768px) and (max-width: 1279px)
+    .page, img
+        padding: 30px
+
+    img
+        float: right
+        margin-top: 0
+        margin-right: 0
+
+    h1
+        padding-top: 0
+        margin-top: 0
+
+@media screen and (min-width: 1280px)
+    .page, img
+        padding: 50px
+
     img
         float: right
         margin: 20px
         margin-top: 0px
 
-@media screen and (min-width: 768px)
-    body, img
-        padding: 0
-        margin: 15px !important
-
-    img
-        float: right
-        margin-top: 0px
-
-@media screen and (min-width: 320px)
-    img
-        margin-top: 0
-
-body, img
-    padding: 0
-    margin: 0
-
-.page
-    padding: 20px
-    padding-top: 0
-
-    p
+    h1
+        padding-top: 0
         margin-top: 0
 
 *
@@ -41,7 +54,4 @@ body, img
 
 h1
     color: black
-    padding-top: 0.3em
-    padding-bottom: 0.3em
-    margin: 0
     font-family: -apple-system-ui-serif, 'Linux Libertine', 'Georgia', 'New York Times', serif

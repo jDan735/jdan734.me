@@ -8,6 +8,11 @@ def page(file_name):
         return file.read()
 
 
+pages = {
+    "index": page("index.html")
+}
+
+
 @app.route('/')
 def index():
     return page("index.html")
@@ -64,7 +69,7 @@ def wiki(page_name):
     h1 = f'<h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     title = f'<title>{makeBelarus(search[0][0])}</title>'
-    style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/static/css/wiki.css?v=1.8.2"/>'
+    style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/static/css/wiki.css?v=1.9.2"/>'
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
