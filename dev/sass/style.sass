@@ -1,7 +1,6 @@
 @import "etc/font"
 @import "etc/colors"
 @import "etc/dark"
-@import "components/headers"
 
 @media screen and (min-width: 320px) and (max-width: 768px)
     html 
@@ -9,7 +8,7 @@
         background-image: none
 
     h1
-        font-size: 2em
+        font-size: 3.5em
         margin-top: 0 !important
 
 
@@ -67,9 +66,6 @@ body
 p, pre
     font-size: 1.2em
 
-h1.ascii
-    font-size: 1em
-
 html
     font-size: 14px
 
@@ -83,6 +79,8 @@ pre
     word-wrap: break-word
     border-radius: 4px
 
+@import "components/headers"
+
 ul:not(.projects, .links)
     li
         font-size: 1.2em
@@ -93,10 +91,6 @@ ul:not(.projects, .links)
 
 ul.projects, ul.projects li, ul.links, ul.links li
     list-style: none
-    margin: 0
-    padding: 0
-
-h3
     margin: 0
     padding: 0
 
