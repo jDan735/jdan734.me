@@ -4,7 +4,7 @@ html
         include includes/head.pug
         title jDan734
     body.index
-        img.honka(src="/static/honka_kaiser.png")
+        img.honka(src="/static/honka_kaiser.png", alt="honka-kaiser")
 
         div
             h1 jDan734
@@ -15,7 +15,7 @@ html
 
             h2 🗂 Links
             ul.links
-                each val in ["/lorem", "/wiki/бан_интернет", "/kanobu", "/404", "/kanobu"]
+                each val in ["/lorem", "/wiki/бан_интернет", "/kanobu", "/404"]
                     li
                         h3
                             a(href=val)= val

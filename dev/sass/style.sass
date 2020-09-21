@@ -1,31 +1,7 @@
-@font-face
-    font-family: 'JetBrians Mono';
-    src: url('../jetbrains_mono/JetBrainsMono-Regular.ttf')
-    font-weight: normal
-    font-style: normal
-
-@font-face
-    font-family: 'JetBrians Mono';
-    src: url('../jetbrains_mono/JetBrainsMono-Bold.ttf')
-    font-weight: bold
-    font-style: normal
-
-@media (prefers-color-scheme: dark)
-    body
-        background: black
-        color: white
-
-    a
-        color: #304ffe
-
-    h1
-        color: #d84315
-
-    .error
-        color: #9b0000
-
-    .green
-        color: #64dd17
+@import "etc/font"
+@import "etc/colors"
+@import "etc/dark"
+@import "components/headers"
 
 @media screen and (min-width: 320px) and (max-width: 768px)
     html 
@@ -73,10 +49,10 @@ img.honka
     margin: 5px
 
 body
-    padding: .5em
+    padding: 1em
 
 .index
-    padding: 0
+    padding: 0 !important
     margin: 0
 
     img
@@ -115,32 +91,6 @@ ul:not(.projects, .links)
         li
             font-size: 1em    
 
-h1, h2, h3, h4, h5, h6
-    a
-        text-decoration: none
-
-// a
-//     color: #0026ca
-
-h1
-    color: #f44336
-    font-size: 3.5em
-
-h2
-    font-size: 2em
-
-h3
-    font-size: 1.5em
-
-    a
-        font-size: .85em
-
-h4
-    font-size: 1.3em
-
-h5
-    font-size: 1.1em
-
 ul.projects, ul.projects li, ul.links, ul.links li
     list-style: none
     margin: 0
@@ -157,28 +107,6 @@ ul.projects, ul.links
             margin-bottom: 1.7em
             padding-top: 8px
 
-table.timer
-    font-size: 4em
-
-    height: 100%
-    width: 100%
-
-
-    td
-        vertical-align: middle
-
-        height: 100%
-        width: 100%
-
-        text-align: center
-
-    .time
-        color: #388e3c
-
-    .time2
-        color: #aaa
-        font-size: .90em
-
 .clean
     padding: 0
     margin: 0
@@ -186,15 +114,6 @@ table.timer
 .w
     width: 100%
     height: 100%
-
-.error
-    color: #d50000
-
-.green
-    color: #1faa00
-
-.blue
-    color: #03a9f4
 
 a:hover
     color: #7a7cff
