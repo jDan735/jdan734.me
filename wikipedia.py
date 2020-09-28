@@ -95,6 +95,20 @@ class Wikipedia:
         except KeyError:
             return -1
 
+    def getImagesByPageName(self, title):
+        r = requests.get(self.url + "/w/api.php",
+                         params={
+                             "action": "query",
+                             "titles": title,
+                             "prop": "pageimages",
+                             "piprop": "original",
+                             "format": "json"
+                         })
+
+        print(r.url)
+        data = json.loads(r.text)
+        return data
+
     def parsePage(self, soup):
         title = "Бан"
         for tag in soup.find_all("p"):
@@ -189,3 +203,8 @@ class Wikipedia:
             text = re.sub(bold, f"<b>{bold}</b>", text, 1)
 
         return text
+
+
+if __name__ == "__main__":
+    w = Wikipedia("ru")
+    print(w.getImagesByPageName("Украина"))
