@@ -123,21 +123,47 @@ def wiki(page_name):
 def ftp(path=""):
     file_path = os.path.abspath(os.path.dirname(__file__))
     s = "/" if os.name == "posix" or os.name == "macos" else "\\"
-    this = None
     a = ""
+    this = None
 
     fp = f"{s}static{s}ftp{s}{path}"
 
     for i in os.walk(file_path + fp):
-        if this is None:
-            this = i[1:]
-            break
+        this = i[1:]
+
+        break
+
+    else:
+        return pages["404"]
+
+    went = fp.replace(s + 'static', '')
+    went = s.join(went.split(s)[:-1])
+
+    if path != "":
+        a += f"<li><h3><a href='{went}'>📁 ..<a></h3></li>"
+
+    icons = [
+        [["jpeg", "jpg", "png", "webp", "svg"], "🖼"],
+        [["license"], "📖"],
+        [["procfile"], "🤖"],
+        [["css"], "💅"],
+        [["py"], "🐍"],
+        [["js"], "☕️"]
+    ]
 
     for b in this[0]:
-        a += f"<li><h3><a href='{fp.replace(s + 'static', '')}{b}'>📂 /{b}<a></h3></li>"
+        a += f"<li><h3><a href='{fp.replace(s + 'static', '')}{b}'>📁 /{b}<a></h3></li>"
 
     for b in this[1]:
-        a += f"<li><h3><a href='{fp}{s}{b}'>📄 /{b}<a></h3></li>"
+        file_icon = "📄"
+
+        for icon in icons:
+            file_type = b.split(".")[-1].lower()
+            for type_ in icon[0]:
+                if file_type == type_:
+                    file_icon = icon[1]
+
+        a += f"<li><h3><a href='{fp}{s}{b}'>{file_icon} {b}<a></h3></li>"
 
     if path == "":
         h1 = "/ftp"
@@ -145,7 +171,7 @@ def ftp(path=""):
     else:
         h1 = fp.replace(f"{s}static", "").replace(s, "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/static/css/style.css?v=2.4.8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ftp</title></head><body><h1>{h1}</h1><ul class=projects>' + a + "</ul></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/static/css/style.css?v=2.4.8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body><h1>{h1}</h1><ul class=projects>' + a + "</ul></body></html>"
 
 
 @app.errorhandler(404)
