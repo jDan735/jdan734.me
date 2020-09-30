@@ -122,11 +122,13 @@ def wiki(page_name):
 @app.route('/ftp')
 def ftp(path=""):
     file_path = os.path.abspath(os.path.dirname(__file__))
+    print(path)
     s = "/" if os.name == "posix" or os.name == "macos" else "\\"
     a = ""
     this = None
 
     fp = f"{s}static{s}ftp{s}{path}"
+    print(file_path + fp)
 
     for i in os.walk(file_path + fp):
         this = i[1:]
@@ -134,13 +136,16 @@ def ftp(path=""):
         break
 
     else:
-        return pages["404"]
+        try:
+            return page(file_path + fp).replace("\n", "<br>")
+        except:
+            return 404
 
     went = fp.replace(s + 'static', '')
     went = s.join(went.split(s)[:-1])
 
     if path != "":
-        a += f"<li><h3><a href='{went}'>📁 ..<a></h3></li>"
+        a += f"<li><h3><a href='{went}'>📁 /<a></h3></li>"
 
     icons = [
         [["jpeg", "jpg", "png", "webp", "svg"], "🖼"],
@@ -152,7 +157,8 @@ def ftp(path=""):
     ]
 
     for b in this[0]:
-        a += f"<li><h3><a href='{fp.replace(s + 'static', '')}{b}'>📁 /{b}<a></h3></li>"
+        print(b)
+        a += f"<li><h3><a href='{fp.replace(s + 'static', '')}{s}{b}'>📁 /{b}<a></h3></li>"
 
     for b in this[1]:
         file_icon = "📄"
@@ -162,8 +168,13 @@ def ftp(path=""):
             for type_ in icon[0]:
                 if file_type == type_:
                     file_icon = icon[1]
+                    break
 
-        a += f"<li><h3><a href='{fp}{s}{b}'>{file_icon} {b}<a></h3></li>"
+        path = (fp + s + b).replace("\\", "/").replace("/static", "")
+
+        print(path)
+
+        a += f"<li><h3><a href='{path}'>{file_icon} {b}<a></h3></li>"
 
     if path == "":
         h1 = "/ftp"
