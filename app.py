@@ -1,7 +1,7 @@
 from flask import Flask
 from wikipedia import Wikipedia
 import os
-app = Flask(__name__)
+app = Flask(__name__, static_url_path="/")
 
 
 def page(file_name):
@@ -87,12 +87,12 @@ def wiki(page_name):
         with open("404.html", encoding="utf-8") as index:
             return index.read()
 
-    head = '<link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/static/css/style.css?v=1.5.7" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
+    head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=1.5.7" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
 
     h1 = f'<h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     title = f'<title>{makeBelarus(search[0][0])}</title>'
-    style = '<link rel="stylesheet" href="/static/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/static/css/wiki.css?v=1.9.2"/>'
+    style = '<link rel="stylesheet" href="/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.2"/>'
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
@@ -171,7 +171,7 @@ def ftp(path=""):
     else:
         h1 = fp.replace(f"{s}static", "").replace(s, "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/static/css/style.css?v=2.4.8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body><h1>{h1}</h1><ul class=projects>' + a + "</ul></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.4.8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body><h1>{h1}</h1><ul class=projects>' + a + "</ul></body></html>"
 
 
 @app.errorhandler(404)
