@@ -19,28 +19,6 @@ pages = {
 }
 
 
-@app.route('/ftp')
-def ftp():
-    path = os.path.abspath(os.path.dirname(__file__))
-    s = "/" if os.name == "posix" or os.name == "macos" else "\\"
-    this = None
-    a = ""
-    fp = f"{s}static{s}ftp{s}honka"
-
-    for i in os.walk(path + fp):
-        if this is None:
-            this = i[1:]
-            break
-
-    for b in this[0]:
-        a += f"<li><a href='{fp}{s}{b}'>/{b}<a></li>"
-
-    for b in this[1]:
-        a += f"<li><a href='{fp}{s}{b}'>/{b}<a></li>"
-
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/static/css/style.css?v=2.4.8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ftp</title></head><body><h1>Index of {fp.replace(f"{s}static", "")}</h1><ul>' + a + "</ul></body></html>"
-
-
 @app.route("/")
 def index():
     return pages["index"]
@@ -137,6 +115,33 @@ def wiki(page_name):
     result = head + style + title + img + page_open + h1 + page + "</div>"
 
     return result
+
+
+@app.route('/ftp/<path:path>')
+@app.route('/ftp/')
+@app.route('/ftp')
+def ftp(path=""):
+    file_path = os.path.abspath(os.path.dirname(__file__))
+    s = "/" if os.name == "posix" or os.name == "macos" else "\\"
+    this = None
+    a = ""
+
+    fp = f"{s}static{s}ftp{s}{path}"
+
+    for i in os.walk(file_path + fp):
+        if this is None:
+            this = i[1:]
+            break
+
+    for b in this[0]:
+        print(f"{fp}{s}{b}")
+        print(f"{fp, s, b = }")
+        a += f"<li><a href='{fp.replace(s + 'static', '')}{b}'>/{b}<a></li>"
+
+    for b in this[1]:
+        a += f"<li><a href='{fp}{s}{b}'>/{b}<a></li>"
+
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/static/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/static/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/static/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/static/css/style.css?v=2.4.8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>ftp</title></head><body><h1>Index of {fp.replace(f"{s}static", "").replace(s, "/")}</h1><ul>' + a + "</ul></body></html>"
 
 
 @app.errorhandler(404)
