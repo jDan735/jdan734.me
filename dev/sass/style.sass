@@ -27,13 +27,6 @@
         li
             display: inline-block !important
 
-            //a
-                //margin: 0 0 10px 0 !important
-
-        li:last-child
-            a
-                margin-bottom: 0 !important
-
 @media screen and (min-width: 1100px)
     img.honka
         float: right
@@ -127,15 +120,20 @@ ul.projects, ul.links
             margin-bottom: 1.7em
             padding-top: 8px
 
+.unpadding
+    padding-bottom: 0 !important
+    margin-bottom: 0 !important
+
 ul.site-links
     li
         display: inline-block
+        padding: 0 6px 0 6px !important
+        margin-top: 23.2333px
         a
             display: inline-block
             background: $green
             color: white
             padding: 7px 10px 7px 10px
-            margin: 0 6px 0 6px
             border-radius: 10px
 
         a:hover
