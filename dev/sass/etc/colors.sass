@@ -1,3 +1,35 @@
+// corporation colors
+
+$twitter: #1DA1F2
+$telegram: #26A2E1
+$github: #171415
+
+// dark corpotation colors
+
+$dark-twitter: darken($twitter, 10%)
+$dark-telegram: darken($telegram, 10%)
+$dark-github: darken($github, 10%)
+
+ul.site-links li
+    a.twitter
+        background: $twitter
+
+    a.twitter:hover
+        background: $dark-twitter
+
+    a.telegram
+        background: $telegram
+
+    a.telegram:hover
+        background: $dark-telegram
+
+    a.github:hover
+        background: $dark-github
+
+    a.github
+        background: $github
+
+
 // Light colors
 
 $red:    #d50000
