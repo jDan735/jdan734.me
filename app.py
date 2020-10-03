@@ -17,6 +17,7 @@ pages = {
     "404": page("404.html"),
     "lorem": page("lorem.html"),
     "test": page("test.html"),
+    "ligatures": page("ligatures.html"),
     "ftp": page("ftp.html")
 }
 
@@ -61,6 +62,11 @@ def sosat():
 @app.route('/kanobu')
 def kanobu():
     return pages["kanobu"]
+
+
+@app.route('/ligatures')
+def ligatures():
+    return pages["ligatures"]
 
 
 @app.route('/timer')
