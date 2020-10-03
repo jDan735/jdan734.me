@@ -16,6 +16,7 @@ pages = {
     "timer": page("timer.html"),
     "404": page("404.html"),
     "lorem": page("lorem.html"),
+    "test": page("test.html"),
     "ftp": page("ftp.html")
 }
 
@@ -45,6 +46,11 @@ def kanobu_server_user(user):
 @app.route("/kanobu_project")
 def kanobu_project():
     return pages["kanobu_project"]
+
+
+@app.route("/test")
+def test():
+    return pages["test"]
 
 
 @app.route('/obama')
