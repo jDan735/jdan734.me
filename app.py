@@ -12,6 +12,7 @@ def page(file_name):
 pages = {
     "index": page("index.html"),
     "kanobu": page("kanobu.html"),
+    "kanobu_project": page("kanobu_project.html"),
     "timer": page("timer.html"),
     "404": page("404.html"),
     "lorem": page("lorem.html"),
@@ -39,6 +40,11 @@ def kanobu_server_user(user):
     return {
         "user": user
     }
+
+
+@app.route("/kanobu_project")
+def kanobu_project():
+    return pages["kanobu_project"]
 
 
 @app.route('/obama')
