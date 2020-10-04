@@ -47,6 +47,16 @@ class Wikipedia:
 
         return result
 
+    def getPageNameById(self, id_):
+        r = requests.get(f"{self.url}/w/api.php",
+                         params={
+                            "action": "query",
+                            "pageids": id_,
+                            "format": "json"
+                         })
+
+        return json.loads(r.text)["query"]["pages"][id]["title"]
+
     def getPage(self, title, exsentences=5):
         if exsentences == -1:
             r = requests.get(f"{self.url}/w/api.php",
@@ -207,4 +217,4 @@ class Wikipedia:
 
 if __name__ == "__main__":
     w = Wikipedia("ru")
-    print(w.getImagesByPageName("Украина"))
+    print(w.getPageNameById(6964527))

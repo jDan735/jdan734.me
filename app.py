@@ -27,6 +27,16 @@ def index():
     return pages["index"]
 
 
+@app.route("/api")
+def api():
+    return {
+        "ban": True,
+        "ban_count": 1488,
+        "rzaka_time": 848393938347292929647492918363739304964682010,
+        "pi": 3.14
+    }
+
+
 @app.route("/kanobu/server")
 def kanobu_server():
     return {
