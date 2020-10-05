@@ -143,7 +143,7 @@ def wiki(page_name):
 
     head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=1.5.7" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
 
-    h1 = f'<h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
+    h1 = f'<body class=index><h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     title = f'<title>{makeBelarus(search[0][0])}</title>'
     style = '<link rel="stylesheet" href="/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.2"/>'
@@ -166,7 +166,7 @@ def wiki(page_name):
 
         img = f'<a href="{full_image_url}"><img src="{image_url}"></a>'
 
-    result = head + style + title + img + page_open + h1 + page + "</div>"
+    result = head + style + title + img + page_open + h1 + page + "</div></body>"
 
     return result
 
@@ -231,7 +231,7 @@ def ftp(path=""):
     else:
         h1 = fp.replace(f"{s}static", "").replace(s, "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.6.2"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body><h1>{h1}</h1><ul class=projects>' + a + "</ul></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.6.2"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class=index><div><h1>{h1}</h1><ul class=projects>' + a + "</ul></div></body></html>"
 
 
 @app.errorhandler(404)
