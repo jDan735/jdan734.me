@@ -2,19 +2,79 @@ doctype html
 html
     head
         include includes/head.pug
-        title kanobu
+        meta(charset="utf-8")
+        title Kanobu
     body.index
         div
-            h1.ban Kanobu
-            h2 ✏️ About
-            p Simple game for your kids
+            h1 Kanobu
+            p Simple game for your family)
 
             h2 🚀 Start
-
             p To start, run this code:
-            pre.code pip install kanobu <br>
-                | kanobu
-
+            pre.code pip install kanobu <br>kanobu
+                
             p or you can start code without install:
-
             pre.code python __main__.py
+                
+            h2 ⚙️ Options
+
+            h3 --lang
+            p For set default language. All languages placed in locale folder
+
+            h3 --sqlite
+            p For save to sqlite db
+
+            h3 --version
+            p Display kanobu version
+
+            h2 🗣 Localization
+            table
+                thead
+                    tr
+                        th Language
+                        th Status
+                        th Language
+                        th Status
+                tbody
+                    tr
+                        td 🇷🇺 Russian
+                        td 👍 stable
+                        td 🇩🇪 German
+                        td ⚠️ beta
+                    tr
+                        td 🇺🇦 Ukrainian
+                        td 👍 stable
+                        td 🇬🇧 English
+                        td 👍 stable
+                    tr
+                        td 🇫🇷 French
+                        td ⚠️ beta
+                        td 🇪🇸 Spanish
+                        td 🗓 plans
+                    tr
+                        td 🇵🇹 Portuguese
+                        td 🗓 plans
+                        td 🇺🇸 English (USA)
+                        td ⚠️ beta
+                    tr
+                        td 🇵🇱 Polish
+                        td 🗓 plans
+                        td 🇮🇹 Italian
+                        td ⚠️ beta
+                    tr
+                        td 🇮🇷 Farsi
+                        td ⚠️ beta
+                        td 😀 Emoji
+                        td ⚠️ beta
+
+            h2 🔨 Dependencies
+
+            ul.projects
+                li
+                    a(href="https://github.com/tartley/colorama")
+                        h3.unlink 🖌 colorama
+                        p Simple cross-platform colored terminal text in Python. Support cmd, bash
+                li
+                    a(href="https://github.com/yaml/pyyaml")
+                        h3.unlink 📄 pyyaml
+                        p The next generation YAML parser and emitter for Python
