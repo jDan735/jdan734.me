@@ -196,8 +196,11 @@ def ftp(path=""):
     went = fp.replace(s + 'static', '')
     went = s.join(went.split(s)[:-1])
 
+    folders = ""
+    files = ""
+
     if path != "":
-        a += f"<li><h3><a href='{went}'>📁 /</a></h3></li>"
+        folders += f"<li><h3><a href='{went}'>📁 /</a></h3></li>"
 
     icons = [
         [["jpeg", "jpg", "png", "webp", "svg"], "🖼"],
@@ -209,7 +212,7 @@ def ftp(path=""):
     ]
 
     for b in this[0]:
-        a += f"<li><h3><a href='{fp.replace(s + 'static', '')}{s}{b}'>📁 /{b}</a></h3></li>"
+        folders += f"<li><h3><a href='{fp.replace(s + 'static', '')}{s}{b}'>📁 /{b}</a></h3></li>"
 
     for b in this[1]:
         file_icon = "📄"
@@ -223,7 +226,7 @@ def ftp(path=""):
 
         path = (fp + s + b).replace("\\", "/").replace("/static", "")
 
-        a += f"<li><h3><a href='{path}'>{file_icon} {b}</a></h3></li>"
+        files += f"<li><h3><a href='{path}'>{file_icon} {b}</a></h3></li>"
 
     if path == "":
         h1 = "/ftp"
@@ -231,7 +234,7 @@ def ftp(path=""):
     else:
         h1 = fp.replace(f"{s}static", "").replace(s, "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.6.2"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class=index><div><h1>{h1}</h1><ul class=projects>' + a + "</ul></div></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.6.2"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class=index><div><h1>{h1}</h1><ul class=projects>' + folders + "</ul><ul class=projects>" + files + "</ul></div></body></html>"
 
 
 @app.errorhandler(404)
