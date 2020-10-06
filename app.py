@@ -79,8 +79,13 @@ def kanobu_server_user(user):
     }
 
 
-@app.route("/test")
+@app.route("/demo")
 def test():
+    return page("demo.html")
+
+
+@app.route("/test")
+def demo():
     return pages["test"]
 
 
