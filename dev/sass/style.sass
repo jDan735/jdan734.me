@@ -76,7 +76,7 @@ body
         padding-bottom: 0 !important
 
         h1
-            margin-top: 0
+            margin: 0
 
 
 p, pre, table
@@ -101,17 +101,19 @@ table.ftp
 .orangeb
     color: #DB9D63
 
-table
+table.github
     border-spacing: 0px
     border-collapse: collapse
 
     *
         // 6px 13px
         padding: 6px 13px
-        border: 1px solid #dfe2e5
+        // border: 1px solid #dfe2e5
+        border: 1px solid #D2D1D6
 
     tr:nth-child(even)
-        background: #F6F8FA
+        //background: #F6F8FA
+        background: #EFF0F5
 
 pre
     display: block
@@ -152,6 +154,7 @@ ul.projects
         border-radius: 0
 
     li:first-child h3 a
+        margin-top: 23.2333px
         margin-bottom: 0 !important
         border-radius: 20px
         border-bottom-left-radius: 0 !important
@@ -228,11 +231,26 @@ ul.projects
         a:hover
             background: #D2D1D6
 
+h3.code-header
+    background: #EFF0F5
+    color: #000
+    padding: 10px
+    text-align: center
+    position: inline-block
+    border-radius: 7px
+
+.emoji
+    max-width: none
+    vertical-align: text-top
+    background-color: initial
+    border-style: none !important
+    padding: 0 !important
+    margin: 0 !important
+
 .code
     background: #212121
     color: #fff
     width: 300px
-    position: static
     padding: 15px
     border-radius: 7px
 

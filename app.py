@@ -12,7 +12,6 @@ def page(file_name):
 pages = {
     "index": page("index.html"),
     "kanobu": page("kanobu.html"),
-    "kanobu_project": page("kanobu_project.html"),
     "timer": page("timer.html"),
     "404": page("404.html"),
     "lorem": page("lorem.html"),
@@ -80,11 +79,6 @@ def kanobu_server_user(user):
     }
 
 
-@app.route("/kanobu_project")
-def kanobu_project():
-    return pages["kanobu_project"]
-
-
 @app.route("/test")
 def test():
     return pages["test"]
@@ -141,7 +135,7 @@ def wiki(page_name):
         with open("404.html", encoding="utf-8") as index:
             return index.read()
 
-    head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=1.5.7" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
+    head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=2.7.0" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
 
     h1 = f'<body class=index><h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
@@ -234,7 +228,7 @@ def ftp(path=""):
     else:
         h1 = fp.replace(f"{s}static", "").replace(s, "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.6.2"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class=index><div><h1>{h1}</h1><ul class=projects>' + folders + "</ul><ul class=projects>" + files + "</ul></div></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.7.0"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class=index><div><h1>{h1}</h1><ul class=projects>' + folders + "</ul><ul class=projects>" + files + "</ul></div></body></html>"
 
 
 @app.errorhandler(404)
