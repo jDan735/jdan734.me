@@ -2,13 +2,16 @@
 @import "etc/colors"
 @import "etc/dark"
 
+img.honka
+    display: none
+
 @media screen and (min-width: 320px) and (max-width: 768px)
     html 
         font-size: 25px
         background-image: none
 
     h1
-        font-size: 3em
+        font-size: 2.5em
         margin-top: 0 !important
 
     h1.ascii
@@ -37,6 +40,7 @@
     img.honka
         float: right
         padding: 20px
+        display: block
 
     body
         padding: 2em
@@ -172,6 +176,12 @@ h1.header
     padding: 20px
     color: white
 
+.head
+    background: $red-dark
+    margin: 0
+    padding: 10px 20px 10px 20px
+    color: white
+
 .firefox
     background: #F0994D !important
 
@@ -276,7 +286,7 @@ h3.code-header
     margin-top: 0 !important
     padding-top: 0 !important
 
-@media screen and (min-width: 320px) and (max-width: 720px)
+@media screen and (min-width: 1px) and (max-width: 720px)
     ul.projects li a
         width: calc(100% - 40px)
 
