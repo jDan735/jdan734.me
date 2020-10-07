@@ -75,7 +75,7 @@ body
         padding: 0
         margin: 0
 
-    div
+    div:not(.h)
         padding: 20px !important
         padding-bottom: 0 !important
 
@@ -170,7 +170,7 @@ ul.projects
         border-top-left-radius: 0 !important
         border-top-right-radius: 0 !important
 
-h1.header
+.header
     background: #d50000
     margin: 0
     padding: 20px
@@ -188,8 +188,20 @@ h1.header
 .h
     // background: url(https://i.ytimg.com/vi/e-6eWEhjMa4/maxresdefault.jpg) !important
     // background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Germany_%281867%E2%80%931919%29.svg/1200px-Flag_of_Germany_%281867%E2%80%931919%29.svg.png) !important
-    background: url(/dubass.png) !important
+    background-image: url(/dubass.png)
     background-size: cover
+    padding: 0
+
+    h1
+        padding: 20px
+        background: rgba(0, 0, 0, .3)
+        margin: 0
+        color: white
+        transition: .3s
+
+    h1:hover
+        background: rgba(0, 0, 0, .5)
+        transition: .3s
 
 h1
     font-size: 3.2em
