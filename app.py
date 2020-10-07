@@ -142,14 +142,14 @@ def wiki(page_name):
 
     head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=2.7.3" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
 
-    h1 = f'<body class=index><h1 class=wiki>{makeBelarus(search[0][0])}</h1>'
+    h1 = f'<body class=index><h1 class="wiki header">{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     title = f'<title>{makeBelarus(search[0][0])}</title>'
-    style = '<link rel="stylesheet" href="/css/style.css?v=1.4.0"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.2"/>'
+    style = '<link rel="stylesheet" href="/css/style.css?v=1.4.3"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.3"/>'
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
-    page_open = "<div class=page>"
+    page_open = '<div class="page demo">'
 
     if image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/400px-Flag_of_Belarus.svg.png":
         image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/400px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
@@ -163,9 +163,14 @@ def wiki(page_name):
         if full_image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/1000px-Flag_of_Belarus.svg.png":
             full_image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/1000px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
 
-        img = f'<a href="{full_image_url}"><img src="{image_url}"></a>'
+        img = f'<a class="wiki-image" href="{full_image_url}"><img src="{image_url}"></a>'
 
-    result = head + style + title + img + page_open + h1 + page + "</div></body>"
+        page = page.replace("<body>", "") \
+                   .replace("</body>", "") \
+                   .replace("<html>", "") \
+                   .replace("</html>", "")
+
+    result = head + style + title + img + h1 + page_open + page + "</div></body>"
 
     return result
 
