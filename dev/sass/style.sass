@@ -1,6 +1,5 @@
 @import "etc/font"
 @import "etc/colors"
-@import "etc/dark"
 
 img.honka
     display: none
@@ -90,7 +89,7 @@ h1.ascii
     font-size: 1em !important
 
 html
-    font-size: 14px
+    font-size: 13px
 
 table.ftp
     padding: 5px 10px 5px 10px
@@ -171,13 +170,13 @@ ul.projects
         border-top-right-radius: 0 !important
 
 .header
-    background: #d50000
+    background: $red-dark
     margin: 0
     padding: 20px
     color: white
 
 .head
-    background: $red-dark
+    background: $red
     margin: 0
     padding: 10px 20px 10px 20px
     color: white
@@ -203,6 +202,10 @@ ul.projects
         background: rgba(0, 0, 0, .5)
         transition: .3s
 
+h1.wiki
+    background: #F6F6F6
+    color: #000
+
 .win2k
     background: #3B6EA5
 
@@ -213,7 +216,12 @@ ul.projects
     background: linear-gradient(to right, $blue, $blue-dark)
 
 h1
-    font-size: 3.2em
+    font-size: 2.6em
+
+.logo
+    background: $blue
+    padding: 5px 20px 5px 20px
+    font-size: 20px
 
 body.index div.demo
     padding-top: 0 !important
@@ -310,6 +318,16 @@ h3.code-header
     margin-top: 0 !important
     padding-top: 0 !important
 
+blockquote
+    background: $yellow-dark
+    margin-left: 0
+    padding: 20px
+    border-left: 10px solid $yellow
+    color: white
+
+    p
+        margin: 0
+
 @media screen and (min-width: 1px) and (max-width: 720px)
     ul.projects li a
         width: calc(100% - 40px)
@@ -317,3 +335,5 @@ h3.code-header
 @media screen and (min-width: 1px) and (max-width: 370px)
     pre.code
         width: calc(100% - 30px)
+
+@import "etc/dark"
