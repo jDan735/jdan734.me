@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, Response
 from wikipedia import Wikipedia
 import os
 app = Flask(__name__, static_url_path="/")
@@ -175,9 +175,32 @@ def wiki(page_name):
     return result
 
 
-@app.route('/ftp/<path:path>')
-@app.route('/ftp/')
+@app.route('/ftp/test/ban')
+def testban():
+    return ftp("/test/ban")
+
+
+@app.route('/ftp/test/test2')
+def test2():
+    return ftp("/test/test2")
+
+
+@app.route('/ftp/honka')
+def honka():
+    return ftp("/honka")
+
+
+@app.route('/ftp/test')
+def test3():
+    return ftp('/test')
+
+
 @app.route('/ftp')
+@app.route('/ftp/')
+def ftp1():
+    return ftp()
+
+
 def ftp(path=""):
     file_path = os.path.abspath(os.path.dirname(__file__))
     s = "/" if os.name == "posix" or os.name == "macos" else "\\"
@@ -185,6 +208,7 @@ def ftp(path=""):
     this = None
 
     fp = f"{s}static{s}ftp{s}{path}"
+    print(f"{fp = }")
 
     for i in os.walk(file_path + fp):
         this = i[1:]
@@ -193,7 +217,22 @@ def ftp(path=""):
 
     else:
         try:
-            return page(file_path + fp).replace("\n", "<br>")
+            return
+            print(path)
+            ext = path.split("/")[-1].split(".")[-1]
+            print(ext)
+            mimetypes = {
+                "css": "text/css",
+                "html": "text/html",
+                "js": "application/javascript",
+                "png": "image/png",
+                "gif": "image/gif",
+                "jpg": "image/jpeg"
+            }
+            print(mimetypes[ext])
+            # return send_from_directory("ftp", f"test{s}style.css")
+            return Response(page(file_path + fp), mimetype="image/svg+xml")
+            # return page(file_path + fp).replace("\n", "<br>")
         except:
             return 404
 
@@ -204,7 +243,7 @@ def ftp(path=""):
     files = ""
 
     if path != "":
-        folders += f"<li><h3><a href='{went}'>📁 /</a></h3></li>"
+        folders += f'<tr><td>📁</td><td><a class=emoji href={went}>/ftp</a></td></tr>'
 
     icons = [
         [["jpeg", "jpg", "png", "webp", "svg"], "🖼"],
@@ -215,8 +254,15 @@ def ftp(path=""):
         [["js"], "☕️"]
     ]
 
+    folders_table = "<tr><td>😀</td><td>Folder name</td></tr>"
+
     for b in this[0]:
-        folders += f"<li><h3><a href='{fp.replace(s + 'static', '')}{s}{b}'>📁 /{b}</a></h3></li>"
+        folders += f'<tr><td>📁</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}</a></td></tr>'
+
+    if folders == "":
+        folders_table = ""
+
+    files_table = "<tr><td>😀</td><td>Files name</td></tr>"
 
     for b in this[1]:
         file_icon = "📄"
@@ -230,15 +276,18 @@ def ftp(path=""):
 
         path = (fp + s + b).replace("\\", "/").replace("/static", "")
 
-        files += f"<li><h3><a href='{path}'>{file_icon} {b}</a></h3></li>"
+        files += f"<tr><td>{file_icon}</td><td><a class=emoji href={path}>{b}</a></td></tr>"
+
+    if files == "":
+        files_table = ""
 
     if path == "":
         h1 = "/ftp"
 
     else:
-        h1 = fp.replace(f"{s}static", "").replace(s, "/")
+        h1 = fp.replace(f"{s}static", "").replace(s, "/").replace("//", "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.7.5"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class=index><h1 class=header>{h1}</h1><div class=demo><ul class=projects>' + folders + "</ul><ul class=projects>" + files + "</ul></div></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.7.6"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><h1 class=header>{h1}</h1><div><table class="folders github">' + folders_table + folders + files_table + files + "</ul></div></body></html>"
 
 
 @app.errorhandler(404)
