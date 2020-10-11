@@ -47,7 +47,6 @@ img.honka
     h1
         margin-top: 0
 
-
 @media screen and (max-width: 439px)
     img
         width: 100%
@@ -81,9 +80,8 @@ body
         h1
             margin: 0
 
-
 p, pre, table
-    font-size: 1.2em
+    font-size: 15.6px
 
 h1.ascii
     font-size: 1em !important
@@ -196,11 +194,10 @@ ul.projects
         background: rgba(0, 0, 0, .3)
         margin: 0
         color: white
-        transition: .3s
 
     h1:hover
         background: rgba(0, 0, 0, .5)
-        transition: .3s
+        transition: .1s
 
 h1.wiki
     background: #F6F6F6
@@ -218,9 +215,8 @@ h1.wiki
 h1
     font-size: 2.6em
 
-.logo
-    background: $blue
-    padding: 5px 20px 5px 20px
+.small
+    padding: 5px 20px 5px 20px !important
     font-size: 20px
 
 body.index div.demo
@@ -333,7 +329,6 @@ blockquote
     .header
         background: #fafbfc
         color: #000
-        box-shadow: inset 0 -1px 0 #e1e4e8
 
 @media screen and (min-width: 1px) and (max-width: 720px)
     ul.projects li a
@@ -342,5 +337,23 @@ blockquote
 @media screen and (min-width: 1px) and (max-width: 370px)
     pre.code
         width: calc(100% - 30px)
+
+@media screen and (min-width: 500px)
+    .index
+        div:not(.h)
+            padding: 80px 80px 0 80px !important
+
+        .header
+            padding: 20px 80px 20px 80px !important
+
+        .head
+            padding: 10px 80px 10px 80px !important
+
+        .h
+            padding: 0 !important
+
+            h1
+                padding: 20px 80px 20px 80px !important
+                margin: 0
 
 @import "etc/dark"
