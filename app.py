@@ -175,6 +175,19 @@ def wiki(page_name):
     return result
 
 
+def convert_bytes(num):
+    for x in ['bytes', 'KB', 'MB', 'GB', 'TB']:
+        if num < 1024.0:
+            return f"{round(num, 2)} {x}"
+        num /= 1024.0
+
+
+def file_size(file_path):
+    if os.path.isfile(file_path):
+        file_info = os.stat(file_path)
+        return convert_bytes(file_info.st_size)
+
+
 @app.route('/ftp/test/ban')
 def testban():
     return ftp("/test/ban")
@@ -208,7 +221,6 @@ def ftp(path=""):
     this = None
 
     fp = f"{s}static{s}ftp{s}{path}"
-    print(f"{fp = }")
 
     for i in os.walk(file_path + fp):
         this = i[1:]
@@ -243,51 +255,66 @@ def ftp(path=""):
     files = ""
 
     if path != "":
-        folders += f'<tr><td>📁</td><td><a class=emoji href={went}>/ftp</a></td></tr>'
+        folders += f'<tr><td>📁</td><td><a class=emoji href={went}>/ftp</a></td><td>inode/directory</td><td>-</td></tr>'
+
+                # "css": "text/css",
+                # "html": "text/html",
+                # "js": "application/javascript",
+                # "png": "image/png",
+                # "gif": "image/gif",
+                # "jpg": "image/jpeg"
 
     icons = [
-        [["jpeg", "jpg", "png", "webp", "svg"], "🖼"],
-        [["license"], "📖"],
-        [["procfile"], "🤖"],
-        [["css"], "💅"],
-        [["py"], "🐍"],
-        [["js"], "☕️"]
+        [["png"], "🖼", "image/png"],
+        [["webp"], "🖼", "image/webp"],
+        [["svg"], "🖼", "image/svg+xml"],
+        [["jpeg", "jpg"], "🖼", "image/jpeg"],
+        [["license"], "📖", "text/plain"],
+        [["procfile"], "🤖", "text/plain"],
+        [["css"], "💅", "text/css"],
+        [["py"], "🐍", "text/x-python"],
+        [["js"], "☕️", "application/javascript"]
     ]
 
-    folders_table = "<tr><td>😀</td><td>Folder name</td></tr>"
+    folders_table = "<tr><td>😀</td><td>Name</td><td>MIME-type</td><td>Size</td></tr>"
 
     for b in this[0]:
-        folders += f'<tr><td>📁</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}</a></td></tr>'
+        folders += f'<tr><td>📁</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}</a></td><td>inode/directory</td><td>-</td></tr>'
 
     if folders == "":
         folders_table = ""
 
-    files_table = "<tr><td>😀</td><td>Files name</td></tr>"
+    files_table = ""
 
     for b in this[1]:
         file_icon = "📄"
 
         for icon in icons:
-            file_type = b.split(".")[-1].lower()
+            ext = b.split(".")[-1].lower()
             for type_ in icon[0]:
-                if file_type == type_:
+                if ext == type_:
                     file_icon = icon[1]
+                    file_type = icon[2]
                     break
 
-        path = (fp + s + b).replace("\\", "/").replace("/static", "")
+        path = (fp + s + b).replace("\\", "/") \
+                           .replace("/static", "") \
+                           .replace("//", "/")
 
-        files += f"<tr><td>{file_icon}</td><td><a class=emoji href={path}>{b}</a></td></tr>"
+        size = file_size(f"{os.path.dirname(os.path.abspath(__file__))}/static{path}".replace("/", s))
+
+        files += f"<tr><td>{file_icon}</td><td><a class=emoji href={path}>{b}</a></td><td>{file_type}</td><td>{size}</td></tr>"
 
     if files == "":
         files_table = ""
 
     if path == "":
-        h1 = "/ftp"
+        h1 = "Index of /ftp"
 
     else:
-        h1 = fp.replace(f"{s}static", "").replace(s, "/").replace("//", "/")
+        h1 = "Index of " + fp.replace(f"{s}static", "").replace(s, "/").replace("//", "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.7.7"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><h1 class=header>{h1}</h1><div><table class="folders github">' + folders_table + folders + files_table + files + "</ul></div></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.7.7"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><h1 class=header>{h1}</h1><div><table>' + folders_table + folders + files_table + files + "</ul></div></body></html>"
 
 
 @app.errorhandler(404)
