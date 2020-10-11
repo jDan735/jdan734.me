@@ -73,7 +73,7 @@ body
         padding: 0
         margin: 0
 
-    div:not(.h)
+    div:not(.h, .shiza)
         padding: 20px !important
         padding-bottom: 0 !important
 
@@ -329,6 +329,62 @@ blockquote
         border: 0px solid none
         td
             padding: 5px 15px 5px 0
+
+
+.game
+    p
+        display: block
+        text-align: center
+        font-size: 18px
+
+    .a
+        text-decoration: underline
+        font-size: 15px
+        color: #6d7384
+
+    p.shiza
+        padding: 0 !important
+        margin: 0 !important
+        text-align: center
+        a
+            background: #09B56F
+            padding: 10px
+            color: white
+            text-decoration: none
+            font-size: 18px
+            border-radius: 5px
+            box-sizing: border-box
+            display: inline-block
+            border: 2px solid transparent
+            text-shadow: 0 1px 0 rgba(33, 33, 33, 0.3)
+            line-height: 20px
+            vertical-align: bottom
+            font-weight: 500
+            cursor: pointer
+
+            svg
+                display: block
+                float: left
+                width: 20px
+                height: 20px
+                vertical-align: middle
+                margin: 0 10px 0 -2px !important
+                fill: currentColor
+
+        a:hover
+            background: #0ac478
+
+    img.kanobu-image
+        display: block
+        margin: 0 auto
+
+    .gray
+        color: #6d7384
+
+    .big
+        font-size: 40px
+        font-weight: 500
+        color: #2f374f
 
 
 @media screen and (min-width: 1px) and (max-width: 720px)

@@ -84,6 +84,11 @@ def test():
     return page("demo.html")
 
 
+@app.route("/neo_kanobu")
+def neo_kanobu():
+    return page("neo_kanobu.html")
+
+
 @app.route("/test")
 def demo():
     return pages["test"]
@@ -314,7 +319,7 @@ def ftp(path=""):
     else:
         h1 = "Index of " + fp.replace(f"{s}static", "").replace(s, "/").replace("//", "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.7.8"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><h1 class=header>{h1}</h1><div><table>' + folders_table + folders + files_table + files + "</ul></div></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.7.9"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><h1 class=header>{h1}</h1><div><table>' + folders_table + folders + files_table + files + "</ul></div></body></html>"
 
 
 @app.errorhandler(404)
