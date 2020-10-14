@@ -38,6 +38,12 @@ def api():
     }
 
 
+@app.route("/habr/<int:id_>")
+def habr(id_):
+    a = habr_page(id_)
+    return '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=2.7.7" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><body class="index habr">' + a[0] + a[1] + "</body>"
+
+
 @app.route("/api/getbanlist")
 def api_getbanlist():
     return {
@@ -147,7 +153,7 @@ def wiki(page_name):
         with open("404.html", encoding="utf-8") as index:
             return index.read()
 
-    head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=2.7.7" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
+    head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><link rel="stylesheet" href="/css/style.css?v=2.7.8" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
 
     h1 = f'<body class=index><h1 class="wiki header">{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
@@ -274,7 +280,7 @@ def ftp(path=""):
     files = ""
 
     if path != "":
-        folders += f'<tr><td>📁</td><td><a class=emoji href={went}>../</a></td><td>inode/directory</td><td>-</td></tr>'
+        folders += f'<tr><td>📂</td><td><a class=emoji href={went}>../</a></td><td>inode/directory</td><td>-</td></tr>'
 
     icons = [
         [["png"], "🖼", "image/png"],
@@ -292,7 +298,7 @@ def ftp(path=""):
     folders_table = "<tr><td>😀</td><td>Name</td><td>MIME-type</td><td>Size</td></tr>"
 
     for b in this[0]:
-        folders += f'<tr><td>📁</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}/</a></td><td>inode/directory</td><td>-</td></tr>'
+        folders += f'<tr><td>📂</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}/</a></td><td>inode/directory</td><td>-</td></tr>'
 
     if folders == "":
         folders_table = ""
@@ -335,19 +341,14 @@ def not_found(error):
     return pages["404"]
 
 
-def page(self, id_):
-    r = requests.get(f"{self.url}{id_}/")
+def habr_page(id_):
+    r = requests.get(f"https://habr.com/ru/post/{id_}/")
     soup = BeautifulSoup(r.text, "lxml")
-    page = ""
+    page = []
 
-    page += f'<b>{soup.find("h1").span.text.upper()}</b>\n\n'
-    page += soup.findAll("div", {"id": "post-content-body"})[0].text
-
-    for tag in soup.findAll("div", {"id": "post-content-body"})[0].findAll("h2"):
-        page = page.replace(tag.text, f"\n<b>{tag.text}</b>")
-
-    for tag in soup.findAll("div", {"id": "post-content-body"})[0].findAll("h3"):
-        page = page.replace(tag.text, f"\n<b>{tag.text}</b>")
+    page.append("<h1 class=header>" + soup.find("h1").span.text + "</h1>")
+    page.append(str(soup.findAll("div", {"id": "post-content-body"})[0]))
+    return page
 
 
 @app.errorhandler(505)
