@@ -1,6 +1,8 @@
 from flask import Flask, Response
 from wikipedia import Wikipedia
 import os
+import requests
+from bs4 import BeautifulSoup
 app = Flask(__name__, static_url_path="/")
 
 
@@ -208,6 +210,16 @@ def honka():
     return ftp("/honka")
 
 
+@app.route('/ftp/code')
+def code():
+    return ftp("/code")
+
+
+@app.route('/ftp/code/tel-parser')
+def code_tel_parser():
+    return ftp("/code/tel-parser")
+
+
 @app.route('/ftp/test')
 def test3():
     return ftp('/test')
@@ -254,20 +266,15 @@ def ftp(path=""):
             return 404
 
     went = fp.replace(s + 'static', '')
-    went = s.join(went.split(s)[:-1])
+    went = went.replace(s, "/").replace("//", "/")
+    went = went.split("/")[0:-1]
+    went = "/".join(went)
 
     folders = ""
     files = ""
 
     if path != "":
-        folders += f'<tr><td>📁</td><td><a class=emoji href={went}>/ftp</a></td><td>inode/directory</td><td>-</td></tr>'
-
-                # "css": "text/css",
-                # "html": "text/html",
-                # "js": "application/javascript",
-                # "png": "image/png",
-                # "gif": "image/gif",
-                # "jpg": "image/jpeg"
+        folders += f'<tr><td>📁</td><td><a class=emoji href={went}>../</a></td><td>inode/directory</td><td>-</td></tr>'
 
     icons = [
         [["png"], "🖼", "image/png"],
@@ -278,13 +285,14 @@ def ftp(path=""):
         [["procfile"], "🤖", "text/plain"],
         [["css"], "💅", "text/css"],
         [["py"], "🐍", "text/x-python"],
-        [["js"], "☕️", "application/javascript"]
+        [["md"], "📝", "text/markdown"],
+        [["js"], "☕️", "text/javascript"]
     ]
 
     folders_table = "<tr><td>😀</td><td>Name</td><td>MIME-type</td><td>Size</td></tr>"
 
     for b in this[0]:
-        folders += f'<tr><td>📁</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}</a></td><td>inode/directory</td><td>-</td></tr>'
+        folders += f'<tr><td>📁</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}/</a></td><td>inode/directory</td><td>-</td></tr>'
 
     if folders == "":
         folders_table = ""
@@ -325,6 +333,21 @@ def ftp(path=""):
 @app.errorhandler(404)
 def not_found(error):
     return pages["404"]
+
+
+def page(self, id_):
+    r = requests.get(f"{self.url}{id_}/")
+    soup = BeautifulSoup(r.text, "lxml")
+    page = ""
+
+    page += f'<b>{soup.find("h1").span.text.upper()}</b>\n\n'
+    page += soup.findAll("div", {"id": "post-content-body"})[0].text
+
+    for tag in soup.findAll("div", {"id": "post-content-body"})[0].findAll("h2"):
+        page = page.replace(tag.text, f"\n<b>{tag.text}</b>")
+
+    for tag in soup.findAll("div", {"id": "post-content-body"})[0].findAll("h3"):
+        page = page.replace(tag.text, f"\n<b>{tag.text}</b>")
 
 
 @app.errorhandler(505)
