@@ -226,6 +226,16 @@ def code_tel_parser():
     return ftp("/code/tel-parser")
 
 
+@app.route('/ftp/code/jdan734-bot')
+def code_bot():
+    return ftp("/code/jdan734-bot")
+
+
+@app.route('/ftp/code/jdan734-bot/flake8')
+def code_bot_flake8():
+    return ftp("/code/jdan734-bot/flake8")
+
+
 @app.route('/ftp/test')
 def test3():
     return ftp('/test')
@@ -292,7 +302,8 @@ def ftp(path=""):
         [["css"], "💅", "text/css"],
         [["py"], "🐍", "text/x-python"],
         [["md"], "📝", "text/markdown"],
-        [["js"], "☕️", "text/javascript"]
+        [["js"], "☕️", "text/javascript"],
+        [["txt"], "🗒", "text/plain"]
     ]
 
     folders_table = "<tr><td>😀</td><td>Name</td><td>MIME-type</td><td>Size</td></tr>"
