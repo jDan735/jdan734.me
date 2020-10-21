@@ -92,6 +92,11 @@ def test():
     return page("demo.html")
 
 
+@app.route("/bot")
+def bot():
+    return page("bot.html")
+
+
 @app.route("/neo_kanobu")
 def neo_kanobu():
     return page("neo_kanobu.html")
