@@ -7,42 +7,98 @@ html
         h1.header.telegram jdan734-bot
         p.head.telegram Multifunctional telegram bot for banning and stuff)))
         div.demo
-            h2 Что может бот
-            ul
-                li 🔍 Смотреть статьи из
-                    ul
-                        li 📚 Википедии
-                        li 🍌 Лурка
-                        li 🧛 Мракопедии
-                li 🖼 Редактировать фото
-                    ul
-                        li 🖌 Наносить
-                            ul
-                                li 💬 Текст
-                                li ⬜️ Прямоугольники, в том числе квадраты
-                        li 🔍 Ресайзить
-                li 🔐 Создавать хеши (sha256)
-                li 🔐 Генерировать пароли
-            h2 Тестирование бота
-            table.github
-                thead
-                    td Команда
-                    td Статус
-                tr
-                    td /wiki
-                    td ⚠️ Beta
-                tr
-                    td /calc
-                    td ❌ None
-                tr
-                    td /art
-                    td ⚠️ Beta
-                tr
-                    td /start
-                    td 👍 stable
-                tr
-                    td /wget 
-                    td ⚠️ Beta
-                tr
-                    td /fake
-                    td ⚠️ Beta
+            //- h2 Что может бот
+            //- ul
+            //-     li 🔍 Смотреть статьи из
+            //-         ul
+            //-             li 📚 Википедии
+            //-             li 🍌 Лурка
+            //-             li 🧛 Мракопедии
+            //-     li 🖼 Редактировать фото
+            //-         ul
+            //-             li 🖌 Наносить
+            //-                 ul
+            //-                     li 💬 Текст
+            //-                     li ⬜️ Прямоугольники, в том числе квадраты
+            //-             li 🔍 Ресайзить
+            //-     li 🔐 Создавать хеши (sha256)
+            //-     li 🔐 Генерировать пароли
+            //- h2 Тестирование бота
+            //- table.github
+            //-     thead
+            //-         td Команда
+            //-         td Статус
+            //-     tr
+            //-         td /wiki
+            //-         td ⚠️ Beta
+            //-     tr
+            //-         td /calc
+            //-         td ❌ None
+            //-     tr
+            //-         td /art
+            //-         td ⚠️ Beta
+            //-     tr
+            //-         td /start
+            //-         td 👍 stable
+            //-     tr
+            //-         td /wget 
+            //-         td ⚠️ Beta
+            //-     tr
+            //-         td /fake
+            //-         td ⚠️ Beta
+            h2 🚀 Start
+            p To start, clone this repo and run this code:
+            pre.code
+                span.blueb cd 
+                span.greenb bot
+                br
+                span.blueb python 
+                span.greenb bot.py
+            p or you can start bot from / if you use environ:
+            pre.code
+                span.blueb python 
+                span.greenb bot/bot.py
+            h2 🔑 Token
+            p
+              | You can get token from 
+              a(href='t.me/BotFather') BotFather
+              | .
+              br
+              | After you must create file token.json in / if you not use environ:
+            pre.code
+                span {
+                span.blueb "token"
+                span : 
+                span.greenb "XXXXXXX"
+                span }
+            p Else you must create code TOKEN in environ with your token.
+            h2 🔨 Dependencies
+            ul.projects
+                li
+                    a(href='https://github.com/eternnoir/pyTelegramBotAPI')
+                        h3 ✈️ PyTelegramBotAPI
+                        p A simple, but extensible Python implementation for the Telegram Bot API.
+                li
+                    a(href='https://github.com/lxml/lxml')
+                        h3 🛠 lxml
+                        p lxml is the most feature-rich and easy-to-use library for processing XML and HTML in the Python language.
+                li
+                    a(href='https://www.crummy.com/software/BeautifulSoup/')
+                        h3 🍲 BeautifulSoup
+                        p Beautiful Soup is a Python library designed for quick turnaround projects like screen-scraping.
+                li 
+                    a(href='https://github.com/python-pillow/Pillow') 
+                        h3 🖼 pillow
+                        p The Python Imaging Library adds image processing capabilities to your Python interpreter.
+                li
+                    a(href='https://github.com/sepandhaghighi/art')
+                        h3 📟 art
+                        p ASCII art is also known as “computer text art”.
+                li
+                    a(href='https://github.com/yaml/pyyaml')
+                        h3 📄 pyyaml
+                        p The next generation YAML parser and emitter for Python.
+                li
+                    a(href='https://github.com/anqxyr/pyscp')
+                        h3 👻 pyscp
+                        p pyscp is a python library for interacting with wikidot-hosted websites.
