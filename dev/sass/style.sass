@@ -103,11 +103,14 @@ html
 .orangeb
     color: $dev-orange1
 
+.redb1
+    color: $dev-red1
+
 table.github
     border-spacing: 0px
     border-collapse: collapse
 
-    *
+    tr td
         // 6px 13px
         padding: 6px 13px
         // border: 1px solid #dfe2e5
@@ -116,6 +119,9 @@ table.github
     tr:nth-child(even)
         //background: #F6F8FA
         background: #EFF0F5
+
+    thead
+        font-weight: 500
 
 pre
     display: block
@@ -311,6 +317,14 @@ h3.code-header
     width: 300px
     padding: 15px
     border-radius: 7px
+
+.table-code
+    background: #282C34
+    color: #fff
+    padding: 7px
+    margin-top: 6px
+    display: inline-block
+    border-radius: 5px
 
 .ban
     margin-top: 0 !important

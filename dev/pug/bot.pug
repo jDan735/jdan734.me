@@ -23,29 +23,6 @@ html
             //-             li 🔍 Ресайзить
             //-     li 🔐 Создавать хеши (sha256)
             //-     li 🔐 Генерировать пароли
-            //- h2 Тестирование бота
-            //- table.github
-            //-     thead
-            //-         td Команда
-            //-         td Статус
-            //-     tr
-            //-         td /wiki
-            //-         td ⚠️ Beta
-            //-     tr
-            //-         td /calc
-            //-         td ❌ None
-            //-     tr
-            //-         td /art
-            //-         td ⚠️ Beta
-            //-     tr
-            //-         td /start
-            //-         td 👍 stable
-            //-     tr
-            //-         td /wget 
-            //-         td ⚠️ Beta
-            //-     tr
-            //-         td /fake
-            //-         td ⚠️ Beta
             h2 🚀 Start
             p To start, clone this repo and run this code:
             pre.code
@@ -72,6 +49,144 @@ html
                 span.greenb "XXXXXXX"
                 span }
             p Else you must create code TOKEN in environ with your token.
+
+            h2 Тестирование бота
+            table.github.uneven
+                thead
+                    td Команда
+                    td Описание
+                    td Статус
+                tr
+                    td /start
+                    td(rowspan=2) Помощь
+                    td(rowspan=2) 👍 Stable
+                tr
+                    td /help
+                tr
+                    td /to_json
+                    td 
+                        | Переводит python dict в json <br/>
+                        | <span class="table-code">{<span class="redb1">'a'</span>: <span class="orangeb">None</span>}</span> =&gt; <span class="table-code">{<span class="redb1">"a"</span>: <span class="orangeb">false</span>}</span>
+                        | &nbsp;
+                    td(rowspan=2) 👍 Stable
+                tr
+                    td /to_yaml
+                    td
+                        | Переводит json в yaml <br/>
+                        | <span class="table-code">{<span class="redb1">'a'</span>: <span class="orangeb">false</span>}</span> 
+                        | =&gt;
+                        | <span class="table-code"><span class="redb1">a</span>: <span class="orangeb">false</span></span>
+                tr
+                    td /delete
+                    td Удаляет сообщение
+                    td(rowspan=2) ⚠️ Beta
+                tr
+                    td /wget
+                    td Получение информации о сайте
+                tr
+                    td /status
+                    td Статус бота
+                    td(rowspan=2) 👍 Stable
+                tr
+                    td /uptime
+                    td Время работы бота
+                tr(style="background: yellowgreen; color: #fff; text-align: center;")
+                    td(colspan=4) Математика
+                tr
+                    td /calc
+                    td Выполнение примеров
+                    td ❌ None
+                tr
+                    td /sqrt
+                    td Вычисление корней
+                    td ⚠️ Beta
+                tr(style="background: yellowgreen; color: #fff; text-align: center;")
+                    td(colspan=4) Онлайн-ресурсы
+                tr
+                    td /wiki
+                    td Просмотр википедии
+                    td ⚠️ Beta
+                tr(style="background: yellowgreen; color: #fff; text-align: center;")
+                    td(colspan=4) Работа с текстом
+                tr
+                    td /upper
+                    td Пересылает текст заглавными буквами
+                    td(rowspan=3) 👍 Stable
+                tr
+                    td /lower
+                    td Пересылает текст прописными буквами
+                tr
+                    td /title
+                    td Каждое слово с заглавной буквы
+                tr(style="background: yellowgreen; color: #fff; text-align: center;")
+                    td(colspan=4) Работа с изображениями
+                tr
+                    td /resize
+                    td Пропорционально уменьшает фото
+                    td(rowspan=3) 👍 Stable
+                tr
+                    td /text
+                    td Наносит текст на фото
+                tr
+                    td /rectangle
+                    td Рисует квадраты
+                tr
+                    td /art
+                    td Создание ASCII артов
+                    td ⚠️ Beta
+                tr(style="background: yellowgreen; color: #fff; text-align: center;")
+                    td(colspan=4) Шифровая херня
+                tr
+                    td /sha256
+                    td Хеширует текст в sha256
+                    td(rowspan=2) 👍 Stable
+                tr
+                    td /generate_password
+                    td Генерация паролей
+                tr(style="background: yellowgreen; color: #fff; text-align: center;")
+                    td(colspan=4) Мемы
+                tr
+                    td /fake
+                    td Отправляет фото с джонами
+                    td ⚠️ Beta
+                tr
+                    td /rzaka
+                    td Отправляет короткий вариант ржаки-смеяки
+                    td(rowspan=3) 👍 Stable
+                tr
+                    td /rzaka_full
+                    td Отправляет полный вариант ржаки-смеяки
+                tr
+                    td /rzaka_time
+                    td Отправляет число часов в ржаке-смеяке
+                tr
+                    td /ban
+                    td Отправляет бан
+                    td(rowspan=3) 👍 Stable
+                tr
+                    td /bylo
+                    td Отправляет "было"
+                tr
+                    td /ne_bylo
+                    td Отправляет "не было"
+                tr
+                    td /pizda
+                    td Отправляет стикер "пизда"
+                    td(rowspan=4) 👍 Stable
+                tr
+                    td /tebe_pizda
+                    td Отправляет стикер "пизда тебе"
+                tr
+                    td /xui
+                    td Отправляет стикер "хуй"
+                tr
+                    td /net_xua
+                    td Отправляет стикер "нет хуя"
+                tr
+                    td /pizda
+                    td Отправляет стикер "пизда"
+                    td 👍 Stable
+
             h2 🔨 Dependencies
             ul.projects
                 li
