@@ -1,5 +1,5 @@
 from flask import Flask, Response
-from wikipedia import Wikipedia
+from wikipya.core import Wikipya
 import os
 import requests
 from bs4 import BeautifulSoup
@@ -151,7 +151,7 @@ def makeBelarus(text):
 
 @app.route('/wiki/<page_name>')
 def wiki(page_name):
-    wiki = Wikipedia("ru")
+    wiki = Wikipya("ru")
     search = wiki.search(page_name)
 
     if search == -1:
