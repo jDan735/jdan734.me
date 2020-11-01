@@ -163,7 +163,7 @@ def wiki(page_name):
     h1 = f'<body class=index><h1 class="wiki header">{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     title = f'<title>{makeBelarus(search[0][0])}</title>'
-    style = '<link rel="stylesheet" href="/css/style.css?v=2.8.2"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.3"/>'
+    style = '<link rel="stylesheet" href="/css/style.css?v=2.8.4"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.3"/>'
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
@@ -349,7 +349,7 @@ def ftp(path=""):
     else:
         h1 = "Index of " + fp.replace(f"{s}static", "").replace(s, "/").replace("//", "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.8.2"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki" href="/wiki/wikipedia">Википедия</a></li><li><a class="ftp-menu active" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><h1 class="header ftp-menu">{h1}</h1><div><table>' + folders_table + folders + files_table + files + "</ul></div></body></html>"
+    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.8.4"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki" href="/wiki/wikipedia">Википедия</a></li><li><a class="ftp-menu active" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><h1 class="header ftp-menu">{h1}</h1><div><table>' + folders_table + folders + files_table + files + "</ul></div></body></html>"
 
 
 @app.errorhandler(404)
