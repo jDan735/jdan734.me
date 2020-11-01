@@ -5,8 +5,20 @@ html
         title jDan734
     body.index
         img.honka(src="/honka_kaiser.png", alt="honka-kaiser")
-        div.h.header
-            h1 jDan734
+        nav
+            ul
+                li
+                    a.home.active(href="/") Home
+                li
+                    a.lorem(href="/lorem") Lorem
+                li
+                    a.wiki(href="/wiki/wikipedia") Википедия
+                li
+                    a.ftp-menu(href="/ftp") FTP
+                li
+                    a.bot(href="/bot") Bot
+
+        h1.header.home Home
         div.demo
             h2 About me
 
@@ -20,11 +32,11 @@ html
                 li
                     a.telegram(href="https://t.me/jdan734") Telegram
 
-            h2.unpadding Links
-            ul.links.site-links
-                each val in ["/lorem", "/wiki/wikipedia", "/ftp", "/test"]
-                    li
-                       a.unlink(href=val)= val
+            //- h2.unpadding Links
+            //- ul.links.site-links
+            //-     each val in ["/lorem", "/wiki/wikipedia", "/ftp", "/test"]
+            //-         li
+            //-            a.unlink(href=val)= val
 
             h2 Projects
             ul.projects

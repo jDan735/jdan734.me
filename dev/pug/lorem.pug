@@ -4,9 +4,21 @@ html
         include includes/head.pug
         title Lorem ipsum
     body.index
-        h1.header Lorem ipsum
-        div.demo
+        nav
+            ul
+                li
+                    a.home(href="/") Home
+                li
+                    a.lorem.active(href="/lorem") Lorem
+                li
+                    a.wiki(href="/wiki/wikipedia") Википедия
+                li
+                    a.ftp-menu(href="/ftp") FTP
+                li
+                    a.bot(href="/bot") Bot
 
+        h1.header.lorem Lorem ipsum
+        div.demo
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac consequat ex. Phasellus enim urna, fermentum at lacus sit amet, rhoncus pulvinar diam. Suspendisse vestibulum accumsan volutpat. Etiam at nulla est. Nam aliquet, nibh in sodales ornare, ante orci maximus justo, non scelerisque quam elit at justo. Nulla imperdiet, est in eleifend ultrices, nibh sapien fermentum dolor, vitae tincidunt nunc tellus vitae nulla. Duis gravida consequat nisi, placerat varius ipsum. Proin quis tortor dui. Quisque eros ante, pellentesque et dignissim nec, rhoncus vitae ligula. Maecenas eleifend lacus eget aliquet mattis. Praesent aliquam dictum dolor id luctus. Ut fringilla dui vitae mi laoreet semper.
 
             p Donec diam risus, interdum pellentesque dictum vitae, ullamcorper quis velit. Nulla facilisi. In hac habitasse platea dictumst. In sodales ex at lorem venenatis sodales. Cras eu imperdiet nunc. Fusce molestie dictum semper. Proin eget nisl vel neque venenatis ultrices. Pellentesque id erat metus. Vivamus ante orci, malesuada a pellentesque nec, fermentum sed lacus.

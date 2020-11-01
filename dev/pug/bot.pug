@@ -4,6 +4,19 @@ html
         include includes/head.pug
         title jdan734-bot
     body.index
+        nav
+            ul
+                li
+                    a.home(href="/") Home
+                li
+                    a.lorem(href="/lorem") Lorem
+                li
+                    a.wiki(href="/wiki/wikipedia") Википедия
+                li
+                    a.ftp-menu(href="/ftp") FTP
+                li
+                    a.bot.active(href="/bot") Bot
+
         h1.header.telegram jdan734-bot
         p.head.telegram Multifunctional telegram bot for banning and stuff)))
         div.demo
@@ -172,7 +185,7 @@ html
                 tr
                     td /pizda
                     td Отправляет стикер "пизда"
-                    td(rowspan=4) 👍 Stable
+                    td(rowspan=5) 👍 Stable
                 tr
                     td /tebe_pizda
                     td Отправляет стикер "пизда тебе"
@@ -185,7 +198,6 @@ html
                 tr
                     td /pizda
                     td Отправляет стикер "пизда"
-                    td 👍 Stable
 
             h2 🔨 Dependencies
             ul.projects
