@@ -5,8 +5,23 @@ html
         meta(charset="utf-8")
         title Kanobu
     body.index
-        h1.header Kanobu
-        p.head Simple game for your kids
+        nav
+            ul
+                li
+                    a.home(href="/") Home
+                li
+                    a.lorem(href="/lorem") Lorem
+                li
+                    a.wiki(href="/wiki/wikipedia") Wikipedia
+                li
+                    a.ftp-menu(href="/ftp") FTP
+                li
+                    a.bot(href="/bot") Bot
+                li
+                    a.kanobu.active(href="/kanobu") Kanobu
+
+        h1.header.kanobu Kanobu
+        p.head.dark-kanobu Simple game for your kids
         div.demo
 
             h2 🚀 Start
