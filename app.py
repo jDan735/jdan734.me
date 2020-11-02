@@ -165,7 +165,7 @@ def wiki(page_name):
     title = f'<title>{makeBelarus(search[0][0])}</title>'
     style = '<link rel="stylesheet" href="/css/style.css?v=2.8.8"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.3"/>'
 
-    image_url = wiki.getImageByPageName(search[0][0], 400)
+    image_url = wiki.getImageByPageName(search[0][0], 400)["source"]
 
     page_open = '<div class="page demo">'
 
