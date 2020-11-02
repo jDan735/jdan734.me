@@ -80,13 +80,16 @@ body
         h1
             margin: 0
 
-*:not(.habr)
-    p, pre, table
+*
+    p, pre, table, small, big, dl, sup
         font-size: 15.6px
 
-body.habr
-    p, pre, table
-        font-size: 15.6px
+b
+    font-weight: 500
+
+// body.habr
+//     p, pre, table
+//         font-size: 15.6px
 
 h1.ascii
     font-size: 1em !important
@@ -181,12 +184,14 @@ ul.projects
     margin: 0
     padding: 20px
     color: white
+    font-weight: 800
 
 .head
     background: $red
     margin: 0
     padding: 10px 20px 10px 20px
     color: white
+    font-weight: 500
 
 
 .firefox
@@ -251,6 +256,7 @@ ul.site-links
             display: inline-block
             background: #EFF0F5
             color: black
+            font-weight: 500
             padding: 7px 10px 7px 10px
             border-radius: 10px
             text-decoration: none
@@ -288,6 +294,8 @@ ul.projects
 
             background: #EFF0F5
             border-radius: 20px
+
+            font-weight: 500
 
             p
                 margin-bottom: 0
@@ -456,11 +464,12 @@ nav
 
     li
         a
-            padding: 10px 30px
+            padding: 10px 25px
             background: $shiza
             cursor: pointer
             color: white
             text-decoration: none
+            font-weight: 500
         a:hover
             color: white
 
