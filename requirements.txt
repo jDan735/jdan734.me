@@ -3,4 +3,4 @@ beautifulsoup4
 requests
 gunicorn
 lxml
-wikipya
+wikipya==1.0.4
