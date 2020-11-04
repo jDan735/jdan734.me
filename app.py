@@ -1,4 +1,4 @@
-from flask import Flask, Response
+from flask import Flask, Response, request
 from wikipya.core import Wikipya
 import os
 import requests
@@ -18,14 +18,22 @@ pages = {
     "404": page("404.html"),
     "lorem": page("lorem.html"),
     "test": page("test.html"),
-    "ligatures": page("ligatures.html"),
-    "ftp": page("ftp.html")
+    "ligatures": page("ligatures.html")
 }
 
 
 @app.route("/")
 def index():
     return pages["index"]
+
+
+@app.route("/wiki")
+def wikimain():
+    title = request.args.get("title", type=str)
+    if title is None:
+        return page("wiki.html")
+    else:
+        return wiki(title)
 
 
 @app.route("/api")
