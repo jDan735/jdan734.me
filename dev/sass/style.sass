@@ -159,26 +159,6 @@ ul.projects, ul.projects li, ul.links, ul.links li
     margin: 0
     padding: 0
 
-ul.projects
-    li h3 a
-        margin-bottom: 0 !important
-        border-radius: 0
-
-    li:first-child h3 a
-        margin-top: 23.2333px
-        border-radius: 5px
-        border-bottom-left-radius: 0 !important
-        border-bottom-right-radius: 0 !important
-
-    li:last-child h3 a
-        border-radius: 5px
-        margin-bottom: 0 !important
-        border-top-left-radius: 0 !important
-        border-top-right-radius: 0 !important
-
-    li:last-child a
-        margin-bottom: 0 !important
-
 .header
     background: $red-dark
     margin: 0
@@ -197,33 +177,9 @@ ul.projects
 .firefox
     background: #F0994D !important
 
-.h
-    background-image: url(/dubass.png)
-    background-size: cover
-    padding: 0 !important
-
-    h1
-        padding: 20px
-        background: rgba(0, 0, 0, .3)
-        margin: 0
-        color: white
-
-    h1:hover
-        background: rgba(0, 0, 0, .5)
-        transition: .1s
-
 h1.wiki
     background: #F6F9FA
     color: #000
-
-.win2k
-    background: #3B6EA5
-
-.gradient
-    background: linear-gradient(to right, $red, $red-dark)
-
-.gradient
-    background: linear-gradient(to right, $blue, $blue-dark)
 
 h1
     font-size: 2.6em
@@ -285,6 +241,8 @@ ul.projects
         a
             display: inline-block
             position: relative
+
+            border: 1px solid #e5e8ec
 
             width: 45%
             width: calc(45% + 20px)
@@ -531,6 +489,12 @@ a.home:not(.active):hover
 
 a.lorem:not(.active):hover
     background: #bc5100
+
+.win2k
+    background: #3B6EA5
+
+.test-header
+    background: #fbc02d
 
 .wiki
     background: #F6F9FA

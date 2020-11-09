@@ -4,11 +4,21 @@ html
         include includes/head.pug
         title test
     body.index
-        div.h.header
-            h1.small jDan734
-        h1.header(style="background: #CC241D;") Откуда в Windows взялись функции BEAR, BUNNY и PIGLET?
-        h1.header.gradient(style="background: white; color: black;") Gradient
-        h1.header.gradient2 Gradient 2
+        nav
+            ul
+                li
+                    a.home(href="/") Home
+                li
+                    a.lorem(href="/lorem") Lorem
+                li
+                    a.wiki(href="/wiki/wikipedia") Wikipedia
+                li
+                    a.ftp-menu(href="/ftp") FTP
+                li
+                    a.bot(href="/bot") Bot
+                li
+                    a.kanobu(href="/kanobu") Kanobu
+        h1.header.test-header Дебажная
         div.demo
             h2 h2 Heading
             h3 h3 Heading
@@ -24,3 +34,12 @@ html
             p
                 i
                     b Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ac consequat ex. Phasellus enim urna, fermentum at lacus sit amet, rhoncus pulvinar diam. Suspendisse vestibulum accumsan volutpat. Etiam at nulla est.
+            ul.projects
+                li
+                    a(href="/bot")
+                        img(src="/images/index.png")
+                        .content
+                            span.type 🤖 BOT
+                            span.date 🗓 Jul 8
+                            h3.unlink jDan734-bot
+                            p Multifunctional telegram bot for banning and stuff :)
