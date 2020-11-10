@@ -250,22 +250,26 @@ ul.projects
 
             background: #EFF0F5
             //background: #efefef
-            border-radius: 5px
+            border-radius: 20px
 
             font-weight: 500 
 
             transition: box-shadow .3s .1s
             margin-bottom: 20px !important
 
+            img, .info
+                border-radius: 20px
+                border-bottom-left-radius: 0
+                border-bottom-right-radius: 0
+
             img
                 display: block
-                border-radius: 5px
+                width: 100%
 
             .info
                 color: black
                 background: #FFFBDD
                 padding: 20px
-                border-radius: 5px
                 border-bottom: 1px solid #EFE4B1
 
             .content
@@ -284,13 +288,10 @@ ul.projects
                 text-align: right
                 float: right
 
-            img
-                width: 100%
-
         a:hover
             //background: #D2D1D6
             background: #EFF0F5
-            box-shadow: 0 0 20px #ccc
+            box-shadow: 0 0 20px #bbb
             transition: box-shadow .3s .1s
 
 h3.code-header
