@@ -4,7 +4,7 @@ app = Flask(__name__, static_url_path="/")
 
 
 def page(file_name):
-    with open(file_name, encoding="utf-8") as file:
+    with open(f"..{file_name}", encoding="utf-8") as file:
         return file.read()
 
 
