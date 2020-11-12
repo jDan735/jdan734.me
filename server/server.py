@@ -1,6 +1,7 @@
-from flask import Flask
+import sys
+sys.path.append('../')
 
-app = Flask(__name__, static_url_path="/..")
+from app import app
 
 
 def page(file_name):
