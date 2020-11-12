@@ -366,6 +366,16 @@ def not_found(error):
     return pages["404"]
 
 
+@app.errorhandler(500)
+def internal_error(error):
+    return page("500.html")
+
+
+@app.route('/0')
+def nol():
+    return 0 / 0
+
+
 def habr_page(id_):
     r = requests.get(f"https://habr.com/ru/post/{id_}/")
     soup = BeautifulSoup(r.text, "lxml")

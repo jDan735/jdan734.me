@@ -4,6 +4,21 @@ html
         include includes/head.pug
         title 404
     body.index
-        h1.header Not Found
+        nav
+            ul
+                li
+                    a.home(href="/") Home
+                li
+                    a.lorem(href="/lorem") Lorem
+                li
+                    a.wiki(href="/wiki/wikipedia") Wikipedia
+                li
+                    a.ftp-menu(href="/ftp") FTP
+                li
+                    a.bot(href="/bot") Bot
+                li
+                    a.kanobu(href="/kanobu") Kanobu
+
+        h1.header.error Not Found
         div.demo
             p Ребята, не стоит вскрывать эту тему. Вы молодые, шутливые, вам все легко. Это не то. Это не Чикатило и даже не архивы спецслужб. Сюда лучше не лезть. Серьезно, любой из вас будет жалеть. Лучше <a href="/">уйдите</a> и забудьте, что тут писалось. Я вполне понимаю, что данным сообщением вызову дополнительный интерес, но хочу сразу предостеречь пытливых - стоп. Остальные просто не найдут
