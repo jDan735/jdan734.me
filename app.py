@@ -173,18 +173,19 @@ def wiki(page_name):
     title = f'<title>{makeBelarus(search[0][0])}</title>'
     style = '<link rel="stylesheet" href="/css/style.css?v=2.9.6"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.3"/>'
 
-    image_url = wiki.getImageByPageName(search[0][0], 400)["source"]
+    image_url = wiki.getImageByPageName(search[0][0], 400)
 
     page_open = '<div class="page demo">'
-
-    if image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/400px-Flag_of_Belarus.svg.png":
-        image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/400px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
 
     if image_url == -1:
         img = ""
 
     else:
+        image_url = image_url["source"]
         full_image_url = wiki.getImageByPageName(search[0][0])
+
+        if image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/400px-Flag_of_Belarus.svg.png":
+            image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/400px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
 
         if full_image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/1000px-Flag_of_Belarus.svg.png":
             full_image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/1000px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
