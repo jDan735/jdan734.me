@@ -6,7 +6,7 @@
         color: white
 
     a
-        color: $blue
+        color: #1565c0
 
     h1
         color: $red-dark
@@ -33,7 +33,7 @@
 
         a:hover
             background: #17181C !important
-            box-shadow: 0 0 20px #444
+            box-shadow: 0 0 20px #1e1e1e
             transition: box-shadow .3s .1s
 
     ul.site-links li
@@ -63,13 +63,18 @@
             // background: #222222 !important
             background: #17181C !important
 
-    .ftp table
-        background: #17181C
+    .wiki, a.wiki:hover
         color: #FFF
 
-    h1.wiki
-        background: #1F1F1F
-        color: #FFF
+    .wiki
+        background: #1F1F1F !important
+
+    a.wiki:not(.active):hover
+        color: #fff !important
+        background: #464646 !important
+
+    .wiki-image
+        background: #000 !important
 
     .header.telegram
         background: $dark-twitter

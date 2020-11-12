@@ -177,10 +177,6 @@ ul.projects, ul.projects li, ul.links, ul.links li
 .firefox
     background: #F0994D !important
 
-h1.wiki
-    background: #F6F9FA
-    color: #000
-
 h1
     font-size: 2.6em
 
@@ -247,6 +243,7 @@ ul.projects
             width: 45%
             width: calc(45% + 20px)
             height: 40%
+            max-width: 450px
 
             background: #EFF0F5
             //background: #efefef
@@ -312,7 +309,7 @@ h3.code-header
     text-decoration: none
 
 .code
-    background: #282C34
+    background: #1e1e1e
     color: #fff
     width: 300px
     padding: 15px
@@ -440,8 +437,6 @@ blockquote
 .h
     padding: 0 !important
 
-@import "etc/dark"
-
 nav
     //background: $red
     background-image: url(/dubass.png)
@@ -544,5 +539,9 @@ a.kanobu:not(.active):hover
 a
     text-decoration: none
 
+.active
+    font-weight: 600
+
 @import "components/form"
 @import "components/footer"
+@import "etc/dark"
