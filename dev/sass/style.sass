@@ -4,53 +4,6 @@
 img.honka
     display: none
 
-@media screen and (min-width: 320px) and (max-width: 768px)
-    html
-        font-size: 25px
-        background-image: none
-
-    h1
-        font-size: 2.5em
-        margin-top: 0 !important
-
-    h1.ascii
-        font-size: .3em
-
-    body
-        margin: 0
-
-    table.timer
-        display: block
-        text-align: left
-        font-size: 1em
-
-    ul.site-links
-        li
-            display: inline-block !important
-
-    ul.projects li a:hover
-        background: #EFF0F5
-
-@media screen and (min-width: 320px) and (max-width: 768px) and (prefers-color-scheme: dark)
-    ul.projects li a:hover
-        background: #17181C
-
-@media screen and (min-width: 1366px)
-    img.honka
-        float: right
-        padding: 20px
-        display: block
-
-    body
-        padding: 2em
-
-    h1
-        margin-top: 0
-
-@media screen and (max-width: 439px)
-    img
-        width: 100%
-
 *
     -webkit-font-feature-settings: "liga" on, "calt" on
     -webkit-font-smoothing: antialiased
@@ -347,98 +300,10 @@ blockquote
         td
             padding: 5px 15px 5px 0
 
-
-.game
-    p
-        display: block
-        text-align: center
-        font-size: 18px
-
-    .a
-        text-decoration: underline
-        font-size: 15px
-        color: #6d7384
-
-    p.shiza
-        padding: 0 !important
-        margin: 0 !important
-        text-align: center
-        a
-            background: #09B56F
-            padding: 10px
-            color: white
-            text-decoration: none
-            font-size: 18px
-            border-radius: 5px
-            box-sizing: border-box
-            display: inline-block
-            border: 2px solid transparent
-            text-shadow: 0 1px 0 rgba(33, 33, 33, 0.3)
-            line-height: 20px
-            vertical-align: bottom
-            font-weight: 500
-            cursor: pointer
-
-            svg
-                display: block
-                float: left
-                width: 20px
-                height: 20px
-                vertical-align: middle
-                margin: 0 10px 0 -2px !important
-                fill: currentColor
-
-        a:hover
-            background: #0ac478
-
-    img.kanobu-image
-        display: block
-        margin: 0 auto
-
-    .gray
-        color: #6d7384
-
-    .big
-        font-size: 40px
-        font-weight: 500
-        color: #2f374f
-
-@media screen and (max-width: 700px)
-    ul.projects li a
-        width: 100% !important
-
-@media screen and (min-width: 1px) and (max-width: 370px)
-    pre.code
-        width: calc(100% - 30px)
-
-@media screen and (max-width: 360px)
-    .projects
-        width: 100%
-        // width: 100% !important
-
-@media screen and (min-width: 500px)
-    .index
-        div:not(.h)
-            padding: 20px 80px 40px 80px
-
-        .header
-            padding: 20px 80px 20px 80px !important
-
-        .head
-            padding: 10px 80px 10px 80px !important
-
-        .h
-            padding: 0 !important
-
-            h1
-                padding: 20px 80px 20px 80px !important
-                margin: 0
-
 .h
     padding: 0 !important
 
 nav
-    //background: $red
     background-image: url(/dubass.png)
     background-size: cover
     margin: 0 !important
@@ -481,97 +346,15 @@ nav
     ul.right
         float: right
 
-@media screen and (max-width: 400px)
-    nav
-        width: 100%
-        padding: 0
-
-        ul
-            width: calc(100% - 50px)
-
-        li, a
-            width: 100%
-
-        li
-            display: block
-
-        a
-            text-align: center
-
-        .active
-            padding-top: 20px
-            padding-bottom: 20px
-
-@media screen and (min-width: 400px) and (max-width: 600px)
-    nav
-        width: 100%
-        padding: 0 !important
-
-
-.home
-    background: #3f51b5
-    color: #fff
-
-a.home:not(.active):hover
-    background: #002984
-
-.lorem
-    background: #f57f17
-    color: #fff
-
-a.lorem:not(.active):hover
-    background: #bc5100
-
-.win2k
-    background: #3B6EA5
-
-.test-header
-    background: #fbc02d
-
-.wiki
-    background: #F6F9FA
-    color: #000
-
-a.wiki.active:hover
-    color: #000
-
-a.wiki:not(.active):hover
-    background: #c3c3c3
-
-.ftp-menu
-    background: $red-dark
-    color: #fff
-
-a.ftp-menu:not(.active):hover
-    background: #930000
-
-.bot
-    background: #3FADE2
-    color: #fff
-
-a.bot:not(.active):hover
-    background: #007eb0
-
-.kanobu
-    background: #8E867B
-    color: #fff
-
-a.kanobu:not(.active):hover
-    background: #61594f
-    color: #fff    
-
-.dark-kanobu
-    background: #373027
-
 a
     text-decoration: none
-
-.error
-    background: #7f0000
 
 .active
     font-weight: 600
 
+
+@import "etc/mobile"
+@import "etc/colors/menu"
 @import "components/form"
 @import "components/footer"
 @import "etc/dark"

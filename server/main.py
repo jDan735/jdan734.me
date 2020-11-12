@@ -1,9 +1,9 @@
-from .server import app, pages, page
+from .server import app, page
 
 
 @app.route("/")
 def index():
-    return pages["index"]
+    return page("index.html")
 
 
 @app.route("/demo")
@@ -16,36 +16,21 @@ def bot():
     return page("bot.html")
 
 
-@app.route("/neo_kanobu")
-def neo_kanobu():
-    return page("neo_kanobu.html")
-
-
 @app.route("/test")
 def demo():
-    return pages["test"]
-
-
-@app.route('/obama')
-def sosat():
-    return "sosat"
+    return page("test.html")
 
 
 @app.route('/kanobu')
 def kanobu():
-    return pages["kanobu"]
+    return page("kanobu.html")
 
 
 @app.route('/ligatures')
 def ligatures():
-    return pages["ligatures"]
-
-
-@app.route('/timer')
-def timer():
-    return pages["timer"]
+    return page("ligatures.html")
 
 
 @app.route('/lorem')
 def lorem():
-    return pages["lorem"]
+    return page("lorem.html")

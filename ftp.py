@@ -69,7 +69,6 @@ def ftp(path=""):
     this = None
 
     fp = f"{s}static{s}ftp{s}{path}"
-    print(f"{fp, file_path = }")
 
     for i in os.walk(file_path + fp):
         this = i[1:]
@@ -79,9 +78,7 @@ def ftp(path=""):
     else:
         try:
             return
-            print(path)
             ext = path.split("/")[-1].split(".")[-1]
-            print(ext)
             mimetypes = {
                 "css": "text/css",
                 "html": "text/html",
@@ -90,7 +87,6 @@ def ftp(path=""):
                 "gif": "image/gif",
                 "jpg": "image/jpeg"
             }
-            print(mimetypes[ext])
             # return send_from_directory("ftp", f"test{s}style.css")
             return Response(page(file_path + fp), mimetype="image/svg+xml")
             # return page(file_path + fp).replace("\n", "<br>")

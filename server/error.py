@@ -1,9 +1,9 @@
-from .server import app, page, pages
+from .server import app, page
 
 
 @app.errorhandler(404)
 def not_found(error):
-    return pages["404"]
+    return page("404.html")
 
 
 @app.errorhandler(500)
