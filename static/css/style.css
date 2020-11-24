@@ -911,3 +911,16 @@ footer h4 {
         background: #00689e;
     }
 }
+
+.header.atom {
+    background: #282C34 !important;
+}
+
+.head.atom {
+    background: #21252B !important;
+}
+
+.hljs {
+    padding: 20px !important;
+    border-radius: 5px;
+}

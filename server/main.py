@@ -1,6 +1,11 @@
 from .server import app, page
 
 
+@app.route("/code")
+def code_page():
+    return page("code.html")
+
+
 @app.route("/")
 def index():
     return page("index.html")

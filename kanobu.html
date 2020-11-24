@@ -7,7 +7,17 @@
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
-    <link rel="stylesheet" href="/css/style.css?v=2.9.9">
+
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+
+
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" href="/css/style.css?v=3.0.1">
+
+    <style>pre {padding: 0;} pre code {padding: 15px !important; border-radius: 10px;}</style>
 
     <title>Kanobu</title>
 </head>
@@ -27,15 +37,9 @@
     <div class="demo">
         <h2>🚀 Start</h2>
         <p>To start, run this code:</p>
-        <pre class="code"><!--
-            --><span class="blueb">pip </span><!--
-            --><span class="orangeb">install </span><!--
-            --><span class="greenb">kanobu</span><!--
-            --><br><!--
-            --><span class="blueb">kanobu</span><!--
-        --></pre>
+        <pre><code class="bash">pip install kanobu<br>kanobu</code></pre>
         <p>or you can start code without install</p>
-        <pre class="code"><span class="blueb">python</span> <span class="greenb">__main__.py</span></pre>
+        <pre><code class="bash">python __main__.py</code></pre>
 
         <h2>⚙️ Options</h2>
         <h3>--lang</h3>
