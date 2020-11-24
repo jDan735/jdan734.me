@@ -8,14 +8,6 @@ const csso = require("gulp-csso")
 
 /* Watchers */
 
-function html(){
-    return watch('./dev/pug/*.pug', () => {
-        return src('./dev/pug/*.pug')
-               .pipe(pug())
-               .pipe(dest('./'))
-    })
-}
-
 function css(){
     return watch('./dev/sass/*.sass', () => {
         return src('./dev/sass/*.sass')
@@ -25,4 +17,4 @@ function css(){
     })
 }
 
-exports.default = parallel(html, css)
+exports.default = parallel(css)
