@@ -422,14 +422,14 @@ ul.projects li a {
     height: 40%;
     margin-bottom: 20px !important;
     border: 1px solid #e5e8ec;
-    border-radius: 20px;
+    border-radius: 10px;
 }
 
 ul.projects li a .info,
 ul.projects li a img {
-    border-radius: 20px;
-    border-bottom-right-radius: 0;
-    border-bottom-left-radius: 0;
+    border-radius: 10px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 ul.projects li a img {
@@ -469,7 +469,7 @@ ul.projects li a span.date {
 }
 
 ul.projects li a:hover {
-    box-shadow: 0 0 20px #bbb;
+    box-shadow: 0 0 30px #bbb;
 }
 
 h3.code-header {position: inline-block;
@@ -861,7 +861,7 @@ footer h4 {
         transition: box-shadow .3s .1s;
     
         background: #17181c !important;
-        box-shadow: 0 0 20px #1e1e1e;
+        box-shadow: 0 0 30px #222;
     }
 
     ul.site-links li a {
