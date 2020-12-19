@@ -931,3 +931,41 @@ footer h4 {
     padding: 20px !important;
     border-radius: 5px;
 }
+
+.header-image {
+    background-position: center center !important;
+    background-size: cover !important;
+}
+
+.header-image h1.header {
+    padding-top: 300px !important;
+    color: #fff;
+}
+
+.header-image h1.header {
+    background: none;
+}
+
+/*.header-image nav {
+    background: none;
+    padding-left: 80px;
+}
+
+.header-image .active {
+    background: none;
+    color: #fff;
+}
+
+html body .header-image nav li a.active:hover {
+    background: none !important;
+}*/
+
+.header-image section {
+    background: rgba(0, 0, 0, .4);
+    transition: .2s background;
+}
+
+.header-image:hover section{
+    background: rgba(0, 0, 0, .6);
+    transition: .2s background;
+}
