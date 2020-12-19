@@ -943,7 +943,7 @@ footer h4 {
 }
 
 .header-image h1.header {
-    background: none;
+    background: none !important;
 }
 
 /*.header-image nav {
