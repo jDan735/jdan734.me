@@ -1,4 +1,4 @@
-from .server import app
+from .error import app
 from bs4 import BeautifulSoup
 
 import requests

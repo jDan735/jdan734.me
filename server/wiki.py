@@ -1,6 +1,6 @@
 from flask import request
 from wikipya.core import Wikipya
-from .server import app, page
+from server.server import app, page
 
 
 @app.route("/wiki")
@@ -67,13 +67,11 @@ def wiki(page_name):
         if full_image_url == "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/1000px-Flag_of_Belarus.svg.png":
             full_image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg/1000px-Flag_of_Belarus_%281918%2C_1991%E2%80%931995%29.svg.png"
 
-        img = f'<a class="wiki-image" href="{full_image_url}"><img src="{image_url}"></a>'
-
         page = page.replace("<body>", "") \
                    .replace("</body>", "") \
                    .replace("<html>", "") \
                    .replace("</html>", "")
 
-    result = head + style + title + '<nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki active" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav>' + img + h1 + page_open + page + "</div></body>"
+    result = head + style + title + '<nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki active" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><header style="background: url(' + full_image_url["source"] + ') no-repeat center fixed" class="header-image"><section>' + h1 + "</section></header>" + page_open + page + "</div></body>"
 
     return result

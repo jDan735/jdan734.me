@@ -1,4 +1,4 @@
-from .server import app, page
+from server.server import app, page
 
 
 @app.route("/code")
