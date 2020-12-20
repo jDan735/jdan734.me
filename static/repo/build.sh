@@ -3,10 +3,10 @@
 # adapted from Haiku's build system
 # usage: build.sh <arch>
 
-#repositoryDir=$1
-#repoInfo="example.info"
+repositoryDir=$1
+repoInfo="jdan734.info"
 
-#packageDir="$repositoryDir/packages"
+packageDir="$repositoryDir/packages"
 #mkdir -p "$packageDir"
 
 #packageListFile="$repositoryDir/package.links"
@@ -35,7 +35,6 @@
 #package_repo create "$repositoryDir/repo.info" "$packageDir"/*.hpkg
 
 # create the checksum file
-sha256sum "x86_gcc2" \
-	| sed -r 's,([^[:space:]]*).*,\1,' > "$repositoryDir/repo.sha256"
+sha256sum "x86_gcc2/" sed -r 's,([^[:space:]]*).*,\1,' > "$repositoryDir/jdan734.sha256"
 		# The sed part is only necessary for sha256sum, but it doesn't harm for
 		# sha256 either.
