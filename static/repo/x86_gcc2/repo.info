@@ -1,0 +1,6 @@
+name "jDan734's Depot"
+vendor "jDan734's Depot"
+summary "jDan734's x86_gcc2 package repository"
+priority 2
+url <https://jdan734.me/repo/x86_gcc2>
+architecture x86_gcc2

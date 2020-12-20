@@ -801,6 +801,14 @@ footer {
     background: #fbc02d;
 }
 
+.haiku {
+    background: #FF9C00;
+}
+
+.haiku-dark, a.haiku:not(.active):hover {
+    background: #c66d00;
+}
+
 footer ul {
     padding: 0 !important;
     list-style: none;
