@@ -937,9 +937,18 @@ footer h4 {
     background-size: cover !important;
 }
 
+.header-image h1.header, .no-image h1.header {
+    padding-top: 200px !important;
+}
+
 .header-image h1.header {
-    padding-top: 300px !important;
     color: #fff;
+}
+
+@media (prefers-color-scheme:dark){
+    .wiki:hover {
+        color: #fff !important;
+    }
 }
 
 .header-image h1.header {

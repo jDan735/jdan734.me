@@ -48,7 +48,7 @@ def wiki(page_name):
     h1 = f'<body class=index><h1 class="wiki header">{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
     title = f'<title>{makeBelarus(search[0][0])}</title>'
-    style = '<link rel="stylesheet" href="/css/style.css?v=2.9.9w"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.3w"/>'
+    style = '<link rel="stylesheet" href="/css/style.css?v=2.9.9wban21"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.4wb"/>'
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
@@ -72,6 +72,15 @@ def wiki(page_name):
                    .replace("<html>", "") \
                    .replace("</html>", "")
 
-    result = head + style + title + '<nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki active" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><header style="background: url(' + full_image_url["source"] + ') no-repeat center fixed" class="header-image"><section>' + h1 + "</section></header>" + page_open + page + "</div></body>"
+    try:
+        print(full_image_url)
+        full_image_url
+        image_css = f"url({full_image_url['source']}) no-repeat center fixed"
+        class_ = "header-image"
+    except:
+        image_css = "none"
+        class_ = "no-image"
+
+    result = head + style + title + '<nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki active" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><header style="background: ' + image_css + '" class=' + class_ + '><section>' + h1 + "</section></header>" + page_open + page + "</div></body>"
 
     return result
