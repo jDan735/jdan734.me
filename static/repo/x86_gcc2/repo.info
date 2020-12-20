@@ -1,0 +1,6 @@
+name "jDan735's repo"
+vendor "Haiku Project"
+summary "jDan735's x86_gcc2 package repository"
+priority 2
+url <htttps://jdan734.me/repo/x86_gcc2>
+architecture x86_gcc2

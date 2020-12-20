@@ -1,6 +1,0 @@
-name "jDan734"
-vendor "jDan734"
-summary "jDan734's x86_gcc2 package repository"
-priority 2
-url <https://jdan734.me/repo/x86_gcc2>
-architecture x86_gcc2
