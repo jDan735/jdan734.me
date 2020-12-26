@@ -11,7 +11,7 @@ mkdir -p "$packageDir"
 
 packageListFile="$repositoryDir/package.links"
 packageList=""
-echo "<table>" > $packageListFile
+echo "<table class="github">" > $packageListFile
 for packageFile in "$packageDir"/*.hpkg; do
 	packageList="$packageList $packageFile"
 	packageFileNoDir=`package info -f "%fileName%" "$packageFile"`
