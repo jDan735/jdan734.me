@@ -986,3 +986,7 @@ html body .header-image nav li a.active:hover {
     background: rgba(0, 0, 0, .6);
     transition: .2s background;
 }
+
+h2, h3, h4, h5, h6 {
+    padding-top: 1.5em;
+}
