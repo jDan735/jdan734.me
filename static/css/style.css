@@ -991,6 +991,10 @@ h2, h3, h4, h5, h6 {
     padding-top: 1.5em;
 }
 
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    padding-top: 0;
+}
+
 .projects h3 {
     padding-top: 0;
 }
