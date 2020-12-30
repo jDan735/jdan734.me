@@ -944,7 +944,11 @@ footer h4 {
     }
 
     ul.site-links li a.github .link-text {
-        background: #111 !important;
+        background: #9266CC !important;
+    }
+
+    ul.site-links li:hover a.github .link-text {
+        background: #613a9a !important;
     }
 
     table.github * {
@@ -1058,5 +1062,20 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     nav ul li a {
         margin: 0;
         border-radius: 0;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    .site-links li, .site-links li a {
+        border: 0px solid #121212 !important;
+    }
+
+    .site-links li .link-emoji {
+        background: #111 !important;
+        border-right: 1px solid #222;
+    }
+
+    .site-links li:hover .link-emoji {
+        background: #222 !important;
     }
 }
