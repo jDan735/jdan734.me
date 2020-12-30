@@ -1,0 +1,56 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: normal
+    font-style: normal;
+
+    src: url('../jetbrains_mono/JetBrainsMono-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    font-weight: bold;
+    font-style: normal;
+
+    src: url('../jetbrains_mono/JetBrainsMono-Bold.ttf');
+}
+
+body {
+    font-family: "JetBrains Mono";
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background: black;
+        color: white;
+    }
+}
+
+dt {
+    font-weight: 900;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2, h3, h4, h5, h6 {
+    padding-top: .5em;
+}
+
+ul li {
+    margin-bottom: .5em;
+}
+
+ul.unstyled {
+    list-style: none;
+    padding-left: 0;
+}
+
+h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
+    padding-top: 0;
+}
+
+body {
+    padding: 20px;
+    padding-top: 0;
+}
