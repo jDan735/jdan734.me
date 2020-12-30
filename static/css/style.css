@@ -174,28 +174,28 @@ pre {
 }
 
 h1.header.telegram,
-ul.site-links li a.twitter {
+ul.site-links li a.twitter .link-text {
     background: #3fade2;
 }
 
 .head.telegram,
-ul.site-links li a.twitter:hover {
+ul.site-links li a.twitter:hover .link-text {
     background: #1f96cf;
 }
 
-ul.site-links li a.telegram {
+ul.site-links li a.telegram .link-text {
     background: #26a2e1;
 }
 
-ul.site-links li a.telegram:hover {
+ul.site-links li a.telegram:hover .link-text {
     background: #1a84ba;
 }
 
-ul.site-links li a.github:hover {
-    background: #111;
+ul.site-links li a.github:hover .link-text {
+    background: #613a9a;
 }
-ul.site-links li a.github {
-    background: #171415;
+ul.site-links li a.github .link-text {
+    background: #9266CC;
 }
 
 @media (prefers-color-scheme:dark) {
@@ -364,11 +364,36 @@ ul.site-links li {
 ul.site-links li a {
     font-weight: 500;
 
+    background: transparent !important;
+
     display: inline-block;
-    padding: 7px 10px;
+/*    padding: 7px 10px;*/
     color: #000;
     border-radius: 10px;
     background: #eff0f5;
+
+    border: 1px solid #eee;
+}
+
+ul.site-links div {
+    padding: 5px 10px 5px 10px !important;
+    display: inline-block;
+}
+
+.link-emoji {
+    padding-right: 10px !important;
+    background: #ececec;
+    border-right: 1px solid #ccc;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+
+.link-text {
+    padding-left: 10px !important;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 ul.site-links li a.github,
@@ -379,6 +404,10 @@ ul.site-links li a.twitter {
 
 ul.site-links li a:hover {
     background: #d2d1d6;
+}
+
+ul.site-links li a:hover .link-emoji {
+    background: #dcdcdc;
 }
 
 ul.site-links li:last-child a {
@@ -544,6 +573,7 @@ nav {margin: 0 !important;
 
     background-image: url(/images/dubass.png);
     background-size: cover;
+    /*background: #669A47;*/
 }
 
 nav ul {margin: 0;
@@ -558,7 +588,12 @@ nav ul {
     display: inline-block;
 }
 
-nav li a {font-weight: 500;
+nav li {
+    margin-right: 7px;
+}
+
+nav li a {
+    font-weight: 500;
     line-height: 1.3;
     
 
@@ -566,6 +601,26 @@ nav li a {font-weight: 500;
     cursor: pointer;
     text-decoration: none;
     background: #510003;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    margin-top: 20px;
+}
+
+nav li.active {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+    /*background: red !important;*/
+}
+
+nav li.active a {
+    padding-top: 10px !important;
+    margin-top: 10px;
+    background: transparent !important;
+
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 nav,
@@ -575,9 +630,9 @@ nav li.logo:hover a {
     color: #fff;
 }
 
-nav li:hover {
+/*nav li:hover a {
     background: #cc241d;
-}
+}*/
 
 nav li.logo a,
 nav ul {
@@ -880,15 +935,15 @@ footer h4 {
         background: #3a3a3c !important;
     }
 
-    ul.site-links li a.twitter {
+    ul.site-links li a.twitter div.link-text {
         background: #1f96cf !important;
     }
 
-    ul.site-links li a.telegram {
+    ul.site-links li a.telegram .link-text {
         background: #1a84ba !important;
     }
 
-    ul.site-links li a.github {
+    ul.site-links li a.github .link-text {
         background: #111 !important;
     }
 
