@@ -3,21 +3,39 @@ from flask import request, jsonify
 from random import randint
 
 
-@app.route("/api")
-def api():
-    action = request.args.get("action", type=str)
-    limit = request.args.get("limit", type=int)
-    format_ = request.args.get("format", type=str)
+class APIError:
+    def __init__(self, text):
+        self.json = {"error": text}
 
-    if action is None:
+
+class jDan734api:
+    def __init__(self):
+        pass
+
+    def ban(self, **kwargs):
+        return {"ban": True, "date": "always has been"}
+
+    def random(self, **kwargs):
+        limit = 10 if kwargs["limit"] is None else kwargs["limit"]
+
+        if limit > 10000:
+            return APIError("Limit is bigger is 10000").json
+
+        return {"number": randint(0, limit)}
+
+
+japi = jDan734api()
+
+
+@app.route("/api")
+def getapi():
+    params = {
+        "action": request.args.get("action", type=str),
+        "limit": request.args.get("limit", type=int),
+        "format": request.args.get("format", type=str)
+    }
+
+    if params["action"] is None:
         return page("api.html")
     else:
-        if action == "ban":
-            return jsonify({"ban": True, "date": "always has been"})
-        elif action == "random":
-            if limit is None:
-                limit = 10
-            elif limit >= 10000:
-                return jsonify({"error": "big limit"})
-
-            return jsonify({"number": randint(0, limit)})
+        return jsonify(japi.__getattribute__(params["action"])(**params))
