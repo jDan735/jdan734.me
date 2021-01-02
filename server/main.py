@@ -31,6 +31,11 @@ def kanobu():
     return page("kanobu.html")
 
 
+@app.route('/projects')
+def projects():
+    return page("projects.html")
+
+
 @app.route('/ligatures')
 def ligatures():
     return page("ligatures.html")

@@ -701,7 +701,7 @@ nav ul.right {
 }
 
 @media screen and (min-width:500px) {
-    .index div:not(.h) {
+    .index div:not(.hiden) {
         padding: 20px 80px 40px;
     }
 
@@ -823,6 +823,16 @@ a.bot:not(.active):hover {
 a.kanobu:not(.active):hover {
     color: #fff;
     background: #61594f;
+}
+
+.projects-color {
+    color: #fff;
+    background: #212121;
+}
+
+a.projects-color:not(.active):hover {
+    color: #fff;
+    background: #444;
 }
 
 .dark-kanobu {
@@ -1079,4 +1089,106 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     .site-links li:hover .link-emoji {
         background: #222 !important;
     }
+}
+
+.hiden {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project {
+    padding: 2px 80px 2px 80px !important;
+}
+
+.project__table {
+    width: 100%;
+}
+
+/*.project:hover {
+    position: relative;
+    z-index: 0;
+    box-shadow: 0 0 30px #222;
+    transition: box-shadow .3s .1s;
+}*/
+
+/*.project td.right {
+    float: right;
+}*/
+
+.project h2 {
+    margin-top: 21px;
+    margin-bottom: 0px;
+}
+
+.project p {
+    margin: 0;
+    margin-bottom: 13px;
+    font-weight: 400;
+}
+
+.project label.button {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 11px;
+    padding: 5px 20px 5px 20px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid rgba(50, 50, 50, .5);
+
+    transition: background .1s;
+}
+
+.project label.button:hover {
+    background: rgba(50, 50, 50, .5);
+    transition: background .1s;
+}
+
+input[type="checkbox"]:checked + .project .hiden {
+    display: block;
+    padding: 0;
+}
+
+.right {
+    float: right;
+    border-radius: 4px;
+}
+
+.project__table h2.title {
+    padding: 0;
+    margin: 0;
+}
+
+/*.project {
+    min-height: 310px;
+}*/
+
+.project__image {
+    float: right;
+    /*padding: 0 !important;*/
+    padding: 40px 0 40px 0 !important;
+}
+
+.project__image img {
+    border-radius: 13px;
+
+    box-shadow: 0 5px 20px #222;
+}
+
+.project__info {
+    width: 200px;
+}
+
+.project__info span.date,
+.project__info span.type {
+    color: rgba(255, 255, 255, .7);
+}
+
+.project__info span.date {
+    /*float: right;*/
+    padding-left: 10px;
+}
+
+.text {
+    padding-left: 0 !important;
 }
