@@ -1099,6 +1099,7 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
 
 .project {
     padding: 2px 80px 2px 80px !important;
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
 }
 
 .project__table {
@@ -1127,21 +1128,47 @@ h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child {
     font-weight: 400;
 }
 
-.project label.button {
+.project .project__button {
     cursor: pointer;
     display: inline-block;
     margin-bottom: 11px;
     padding: 5px 20px 5px 20px;
     font-size: 15px;
     font-weight: 500;
-    border: 1px solid rgba(50, 50, 50, .5);
+    border-radius: 3px;
+    outline: none;
+
+    border: 1px solid rgba(33, 43, 52, .4);
+    background: transparent;
+    color: #fff;
 
     transition: background .1s;
 }
 
-.project label.button:hover {
-    background: rgba(50, 50, 50, .5);
+.project .project__button:active {
+    background: rgba(50, 50, 50, .4);
     transition: background .1s;
+}
+
+/*.project__button[href^="https://github.com"]:hover {
+    border-color: rgba(22, 27, 34, .4);
+} */.project__button[href^="https://github.com"]:active {
+    background: rgba(22, 27, 34, .4);
+    border-color: rgba(22, 27, 34, .4);
+}
+
+/*.project__button[href^="https://pypi.org"]:hover {
+    border-color: rgba(0, 109, 173, .4);
+} */.project__button[href^="https://pypi.org"]:active {
+    background: rgba(0, 109, 173, .4);
+    border-color: rgba(0, 109, 173, .4);
+}
+
+/*.project__button[href^="https://pypi.org"]:hover {
+    border-color: rgba(0, 109, 173, .4);
+} */.project__button[href^="https://t.me"]:active {
+    background: rgba(36, 162, 223, .4);
+    border-color: rgba(36, 162, 223, .4);
 }
 
 input[type="checkbox"]:checked + .project .hiden {
@@ -1159,9 +1186,10 @@ input[type="checkbox"]:checked + .project .hiden {
     margin: 0;
 }
 
-/*.project {
+.project.without_image, .project.without_image table {
+    height: 1px;
     min-height: 310px;
-}*/
+}
 
 .project__image {
     float: right;
@@ -1176,7 +1204,7 @@ input[type="checkbox"]:checked + .project .hiden {
 }
 
 .project__info {
-    width: 200px;
+    width: 100%;
 }
 
 .project__info span.date,
@@ -1185,10 +1213,26 @@ input[type="checkbox"]:checked + .project .hiden {
 }
 
 .project__info span.date {
-    /*float: right;*/
-    padding-left: 10px;
+    float: right;
+    padding-left: 2px;
 }
 
 .text {
     padding-left: 0 !important;
+}
+
+.project__card {
+    padding: 20px !important;
+    background: #cccc00;
+
+    box-shadow: 0 0 5px #222;
+}
+
+.qt_project {
+    background: #41cd52;
+    color: #fff;
+}
+
+.wikipya .project__button {
+    color: #000;
 }
