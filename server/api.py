@@ -1,4 +1,4 @@
-from server.server import app, page
+from server.server import app, page, con
 from flask import request, jsonify
 from random import randint
 
@@ -22,6 +22,11 @@ class jDan734api:
             return APIError("Limit is bigger is 10000").json
 
         return {"number": randint(0, limit)}
+
+    def testdb(self, **kwargs):
+        return {
+            "status": con.status
+        }
 
 
 japi = jDan734api()
