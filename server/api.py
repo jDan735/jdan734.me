@@ -48,7 +48,6 @@ class jDan734api:
             return APIError("Incorrect result value").json
 
         sql = f"INSERT INTO games VALUES ('{username}', {gamer}, {bot}, {result})"
-        print(sql)
         cur = conn.cursor()
         cur.execute(sql)
         return {"ok": True}
