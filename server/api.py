@@ -3,6 +3,18 @@ from flask import request, jsonify
 from random import randint
 
 
+params = {}
+arguments = [
+    ["action", str],
+    ["limit", int],
+    ["format", str],
+    ["username", str],
+    ["gamer", int],            # Gamer's choice
+    ["bot", int],              # Bot's choice
+    ["result", int]
+]
+
+
 class APIError:
     def __init__(self, text):
         self.json = {"error": text}
@@ -58,16 +70,8 @@ japi = jDan734api()
 
 @app.route("/api")
 def getapi():
-    params = {
-        "action": request.args.get("action", type=str),
-        "limit": request.args.get("limit", type=int),
-        "format": request.args.get("format", type=str),
-
-        "username": request.args.get("username", type=str),
-        "gamer": request.args.get("gamer", type=int),
-        "bot": request.args.get("bot", type=int),
-        "result": request.args.get("result", type=int)
-    }
+    for arg in arguments:
+        params[arg[0]] = request.args.get(*arg)
 
     if params["action"] is None:
         return page("api.html")
