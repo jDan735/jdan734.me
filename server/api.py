@@ -1,4 +1,4 @@
-from server.server import app, page, con
+from server.server import app, page, conn
 from flask import request, jsonify
 from random import randint
 
@@ -25,8 +25,33 @@ class jDan734api:
 
     def testdb(self, **kwargs):
         return {
-            "status": con.status
+            "status": conn.status
         }
+
+    def showdb(self, **kwargs):
+        cur = conn.cursor()
+        cur.execute("SELECT * FROM games;")
+        e = cur.fetchall()
+        return e
+
+    def addtodb(self, **kwargs):
+        username = kwargs['username']
+        result = kwargs["result"]
+        gamer = kwargs["gamer"]
+        bot = kwargs["bot"]
+
+        if gamer > 2 or gamer < 0:
+            return APIError("Incorrect gamer value").json
+        if bot > 2 or bot < 0:
+            return APIError("Incorrect bot value").json
+        if result > 2 or result < 0:
+            return APIError("Incorrect result value").json
+
+        sql = f"INSERT INTO games VALUES ('{username}', {gamer}, {bot}, {result})"
+        print(sql)
+        cur = conn.cursor()
+        cur.execute(sql)
+        return {"ok": True}
 
 
 japi = jDan734api()
@@ -37,7 +62,12 @@ def getapi():
     params = {
         "action": request.args.get("action", type=str),
         "limit": request.args.get("limit", type=int),
-        "format": request.args.get("format", type=str)
+        "format": request.args.get("format", type=str),
+
+        "username": request.args.get("username", type=str),
+        "gamer": request.args.get("gamer", type=int),
+        "bot": request.args.get("bot", type=int),
+        "result": request.args.get("result", type=int)
     }
 
     if params["action"] is None:

@@ -14,9 +14,15 @@ def page(file_name):
 
 
 if "DATABASE_URL" in environ:
-    con = psycopg2.connect(environ["DATABASE_URL"],
+    conn = psycopg2.connect(environ["DATABASE_URL"],
                            sslmode='require')
 else:
     with open("dbconf.json") as bdconf_file:
         bdconf = json.loads(bdconf_file.read())
-        con = psycopg2.connect(**bdconf)
+        conn = psycopg2.connect(**bdconf)
+
+try:
+    cur = conn.cursor()
+    cur.execute("CREATE TABLE games (username TEXT, gamer INTEGER, bot INTEGER, result INTEGER)")
+except:
+    pass
