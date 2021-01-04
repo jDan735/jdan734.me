@@ -35,7 +35,7 @@ class jDan734api:
         return e
 
     def addtodb(self, **kwargs):
-        username = kwargs['username']
+        username = kwargs["username"]
         result = kwargs["result"]
         gamer = kwargs["gamer"]
         bot = kwargs["bot"]
