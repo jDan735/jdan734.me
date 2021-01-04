@@ -39,18 +39,18 @@ class jDan734api:
 
         return {"number": randint(0, limit)}
 
-    def testdb(self):
+    def testDB(self):
         return {
             "status": conn.status
         }
 
-    def showdb(self):
+    def showDB(self):
         cur = conn.cursor()
         cur.execute("SELECT * FROM games;")
         e = cur.fetchall()
         return e
 
-    def addtodb(self):
+    def addToDB(self):
         if self.gamer > 2 or self.gamer < 0:
             return APIError("Incorrect gamer value").json
         if self.bot > 2 or self.bot < 0:
