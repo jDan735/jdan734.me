@@ -71,7 +71,7 @@ japi = jDan734api()
 @app.route("/api")
 def getapi():
     for arg in arguments:
-        params[arg[0]] = request.args.get(*arg)
+        params[arg[0]] = request.args.get(arg[0], type=arg[1])
 
     if params["action"] is None:
         return page("api.html")
