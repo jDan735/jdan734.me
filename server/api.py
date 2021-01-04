@@ -63,8 +63,7 @@ class jDan734api:
                          gamer=self.gamer,
                          bot=self.bot,
                          result=self.result)
-        cur = conn.cursor()
-        cur.execute(sql)
+        conn.cursor().execute(sql)
         return {"ok": True}
 
 
