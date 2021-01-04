@@ -76,4 +76,9 @@ def getapi():
     if params["action"] is None:
         return page("api.html")
     else:
-        return jsonify(japi.__getattribute__(params["action"])(**params))
+        try:
+            return jsonify(japi.__getattribute__(params["action"])(**params))
+        except AttributeError:
+            return jsonify({
+                "error": "action {} not found".format(params["action"])
+            })
