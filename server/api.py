@@ -78,13 +78,14 @@ def getApi():
 
     if params["action"] is None:
         return page("api.html")
-    elif params["action"][0] == "_":
+
+    if params["action"][0] == "_":
         return jsonify({"error": "actions can't starts with _"})
-    else:
-        try:
-            japi._prepare(**params)
-            return jsonify(japi.__getattribute__(params["action"])())
-        except AttributeError:
-            return jsonify({
-                "error": "action {} not found".format(params["action"])
-            })
+
+    try:
+        japi._prepare(**params)
+        return jsonify(japi.__getattribute__(params["action"])())
+    except AttributeError:
+        return jsonify({
+            "error": "action {} not found".format(params["action"])
+        })
