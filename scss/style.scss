@@ -1,0 +1,33 @@
+@import "content/content.scss";
+@import "menu/menu.scss";
+
+body {
+    background: #1C1C1C;
+    color: #fff;
+
+    padding: 0;
+    margin: 0;
+
+    big, dl, p, pre, small, sup, table {
+        font-size: 15.6px;
+    }
+
+    h1 {
+        font-size: 33.8px;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    a {
+        font-size: 15.6px;
+        text-decoration: none;
+    }
+}
+
+* {
+    font-family: 'JetBrians Mono', monospace;
+    line-height: 1.56;
+    word-wrap: break-word;
+}

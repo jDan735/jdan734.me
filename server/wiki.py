@@ -52,7 +52,7 @@ def wiki(page_name):
 
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
-    page_open = '<div class="page demo">'
+    page_open = '<div class="content">'
 
     if image_url == -1:
         img = ""
@@ -81,6 +81,6 @@ def wiki(page_name):
         image_css = "none"
         class_ = "no-image"
 
-    result = head + style + title + '<nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki active" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><header style="background: ' + image_css + '" class=' + class_ + '><section>' + h1 + "</section></header>" + page_open + page + "</div></body>"
+    result = head + style + title + '<nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki active" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><header class=' + class_ + '>' + page_open + h1 + page + "</div></body>"
 
     return result

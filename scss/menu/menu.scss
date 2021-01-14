@@ -1,0 +1,33 @@
+nav {
+    background: #161616;
+
+    ul {
+        width: 75%;
+
+        list-style: none;
+        padding: 0;
+        padding-top: 25px;
+        margin: 0 auto;
+
+        li, a {
+            display: inline-block;
+        }
+
+        li a {
+            padding: 10px 20px;
+            font-weight: 500;
+            color: #ccc;
+
+            &:hover {
+                color: #eee;
+            }
+
+            &.active {
+                background: #1C1C1C;
+                color: #fff;
+                border-top-right-radius: 4px;
+                border-top-left-radius: 4px;
+            }
+        }
+    }
+}
