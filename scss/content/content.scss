@@ -1,0 +1,14 @@
+.content {
+    width: 75%;
+    margin: 0 auto;
+
+    h1 {
+        &.error {
+            color: #c00;
+        }
+    }
+
+    .center {
+        text-align: center;
+    }
+}

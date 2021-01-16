@@ -1,0 +1,25 @@
+{
+  "name": "jdansite",
+  "version": "1.0.0",
+  "description": "Kaiser's personal site, hosted in heroku.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0",
+    "gulp-watch": "^5.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdan735/jdan735.github.io.git"
+  },
+  "author": "jDan735",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdan735/jdan735.github.io/issues"
+  },
+  "homepage": "https://github.com/jdan735/jdan735.github.io#readme"
+}
