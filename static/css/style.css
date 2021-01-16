@@ -77,6 +77,11 @@ a {
         margin: 0;
         padding: 0; }
 
+@media screen and (min-width: 0) and (max-width: 600px) {
+  .cards a {
+    width: 100% !important;
+    background: red; } }
+
 .content table {
   border-spacing: 0;
   border-collapse: collapse; }
