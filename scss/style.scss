@@ -1,3 +1,5 @@
+@import "content/default/default.scss";
+@import "content/buttons/social/social.scss";
 @import "content/table/table.scss";
 @import "content/content.scss";
 @import "menu/menu.scss";
@@ -8,25 +10,6 @@ body {
 
     padding: 0;
     margin: 0;
-
-    big, dl, p, pre, small, sup, table {
-        font-size: 15.6px;
-    }
-
-    h1 {
-        font-size: 33.8px;
-    }
-
-    h2 {
-        font-size: 26px;
-    }
-
-    a {
-        font-size: 15.6px;
-        text-decoration: none;
-
-        color: #157EFB;
-    }
 }
 
 * {

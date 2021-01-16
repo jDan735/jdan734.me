@@ -1,3 +1,37 @@
+big, dl, p, pre, small, sup, table {
+  font-size: 15.6px; }
+
+h1 {
+  font-size: 33.8px; }
+
+h2 {
+  font-size: 26px; }
+
+a {
+  font-size: 15.6px;
+  text-decoration: none;
+  color: #157EFB; }
+
+.contact__links {
+  list-style: none;
+  padding: 0; }
+  .contact__links .link__emoji, .contact__links .link__text, .contact__links li {
+    display: inline-block; }
+  .contact__links li {
+    margin-top: 10px; }
+    .contact__links li a {
+      border-radius: 4px;
+      font-weight: 500;
+      color: white; }
+      .contact__links li a .link__emoji, .contact__links li a .link__text {
+        padding: 5px 10px 5px 10px; }
+      .contact__links li a .link__emoji {
+        border-radius: 4px 0 0 4px;
+        background: #111111; }
+      .contact__links li a .link__text {
+        border-radius: 0 4px 4px 0;
+        background: #28292d; }
+
 table {
   border-spacing: 0;
   border-collapse: collapse; }
@@ -43,16 +77,6 @@ body {
   color: #fff;
   padding: 0;
   margin: 0; }
-  body big, body dl, body p, body pre, body small, body sup, body table {
-    font-size: 15.6px; }
-  body h1 {
-    font-size: 33.8px; }
-  body h2 {
-    font-size: 26px; }
-  body a {
-    font-size: 15.6px;
-    text-decoration: none;
-    color: #157EFB; }
 
 * {
   font-family: 'JetBrians Mono', monospace;

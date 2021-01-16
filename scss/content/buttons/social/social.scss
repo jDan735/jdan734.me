@@ -1,0 +1,32 @@
+.contact__links {
+    list-style: none;
+    padding: 0;
+
+    .link__emoji, .link__text, li {
+        display: inline-block;
+    }
+
+    li {
+        margin-top: 10px;
+
+        a {
+            border-radius: 4px;
+            font-weight: 500;
+            color: white;
+
+            .link__emoji, .link__text {
+                padding: 5px 10px 5px 10px;
+            }
+
+            .link__emoji {
+                border-radius: 4px 0 0 4px;
+                background: #111111;
+            }
+
+            .link__text {
+                border-radius: 0 4px 4px 0;
+                background: #28292d;
+            }
+        }
+    }
+}
