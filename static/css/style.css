@@ -1,3 +1,13 @@
+table {
+  border-spacing: 0;
+  border-collapse: collapse; }
+  table tr td {
+    border-radius: 10px;
+    border: 1px solid #404040;
+    padding: 10px 15px; }
+  table tr:nth-child(even) {
+    background: #222222; }
+
 .content {
   width: 75%;
   margin: 0 auto; }
@@ -41,7 +51,8 @@ body {
     font-size: 26px; }
   body a {
     font-size: 15.6px;
-    text-decoration: none; }
+    text-decoration: none;
+    color: #157EFB; }
 
 * {
   font-family: 'JetBrians Mono', monospace;

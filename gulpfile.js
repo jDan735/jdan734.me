@@ -4,11 +4,9 @@ const sass = require("gulp-sass")
 const watch = require("gulp-watch")
 
 function css(){
-    return watch('./scss/**/*.scss', () => {
-        return src('./scss/*.scss')
-               .pipe(sass())
-               .pipe(dest('./static/css'))
-    })
+    return src('./scss/style.scss')
+           .pipe(sass())
+           .pipe(dest('./static/css'))
 }
 
 exports.default = css
