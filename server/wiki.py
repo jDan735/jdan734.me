@@ -1,4 +1,4 @@
-from flask import request
+from flask import request, render_template, Markup
 from wikipya.core import Wikipya
 from server.server import app, page
 
@@ -43,21 +43,10 @@ def wiki(page_name):
         with open("404.html", encoding="utf-8") as index:
             return index.read()
 
-    head = '<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" /><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" /><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" /><meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />'
-
-    h1 = f'<body class=index><h1 class="wiki header">{makeBelarus(search[0][0])}</h1>'
     page = makeBelarus(str(wiki.getPage(search[0][0], -1)))
-    title = f'<title>{makeBelarus(search[0][0])}</title>'
-    style = '<link rel="stylesheet" href="/css/style.css?v=2.9.9wban21"/><link rel="stylesheet" href="/css/wiki.css?v=1.9.4wb"/>'
-
     image_url = wiki.getImageByPageName(search[0][0], 400)
 
-    page_open = '<div class="content">'
-
-    if image_url == -1:
-        img = ""
-
-    else:
+    if image_url != -1:
         image_url = image_url["source"]
         full_image_url = wiki.getImageByPageName(search[0][0])
 
@@ -71,16 +60,12 @@ def wiki(page_name):
                    .replace("</body>", "") \
                    .replace("<html>", "") \
                    .replace("</html>", "")
+    else:
+        image_url = ""
 
-    try:
-        print(full_image_url)
-        full_image_url
-        image_css = f"url({full_image_url['source']}) no-repeat center fixed"
-        class_ = "header-image"
-    except:
-        image_css = "none"
-        class_ = "no-image"
+    print(image_url)
 
-    result = head + style + title + '<nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki active" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><header class=' + class_ + '>' + page_open + h1 + page + "</div></body>"
-
-    return result
+    return render_template("wikipage.html",
+                           title=makeBelarus(search[0][0]),
+                           content=Markup(page),
+                           image_url=image_url)
