@@ -1,4 +1,4 @@
-from flask import Response
+from flask import request, render_template, Markup, Response
 from server.server import app, page
 import os
 
@@ -154,6 +154,11 @@ def ftp(path=""):
         h1 = "Index of /ftp"
 
     else:
-        h1 = "Index of " + fp.replace(f"{s}static", "").replace(s, "/").replace("//", "/")
+        h1 = "Index of " + fp.replace(f"{s}static", "") \
+                             .replace(s, "/") \
+                             .replace("//", "/")
 
-    return f'<!DOCTYPE html><html><head><link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16"><link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32"><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96"><link rel="stylesheet" href="/css/style.css?v=2.9.9"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>FTP</title></head><body class="index ftp"><nav><ul><li><a class="home" href="/">Home</a></li><li><a class="lorem" href="/lorem">Lorem</a></li><li><a class="wiki" href="/wiki/wikipedia">Wikipedia</a></li><li><a class="ftp-menu active" href="/ftp">FTP</a></li><li><a class="bot" href="/bot">Bot</a></li><li><a class="kanobu" href="/kanobu">Kanobu</a></li></ul></nav><div class="content"><h1>{h1}</h1><table>' + folders_table + folders + files_table + files + "</ul></div></body></html>"
+    return render_template("ftp.html",
+                           title=h1,
+                           content=Markup("<table>" + folders_table + folders +
+                                          files_table + files))
