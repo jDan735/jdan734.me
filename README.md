@@ -1,5 +1,5 @@
 # 📰 jDan735.github.io
-Kaiser's personal site, hosted in heroku.
+Kaiser's personal site, hosted in Linode.
 
 ## 📦 Install dependecies
 ```
