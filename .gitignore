@@ -2,3 +2,5 @@ node_modules
 __pycache__
 bdconf.json
 package-lock.json 
+dbconf.json
+static/css_old
