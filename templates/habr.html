@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
+
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/default.min.css">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link rel="stylesheet" href="/css/atom-one-dark.css">
+    <link rel="stylesheet" href="/css/style.css?v=3.0.1">
+
+    <style>pre {padding: 0;} pre code {padding: 15px !important; border-radius: 10px;} pre * {font-weight: 500;}</style>
+
+    <title>{{ title }}</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/" class="home">Home</a></li><!--
+            --><li><a href="/lorem" class="lorem">Lorem</a></li><!--
+            --><li><a href="/wiki/wikipedia">Wikipedia</a></li><!--
+            --><li><a href="/ftp" class="ftp">FTP</a></li><!--
+            --><li><a href="/bot" class="bot">Bot</a></li><!--
+            --><li><a href="/kanobu" class="kanobu">kanobu</a></li>
+        </ul>
+    </nav>
+    <div class="content">
+        <h1>{{ title }}</h1>
+        {{ content }}
+    </div>
+</body>
+</html>
