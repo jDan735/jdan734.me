@@ -1,46 +1,24 @@
 from server.server import app, page
 
 
-@app.route("/code")
-def code_page():
-    return page("code.html")
-
-
 @app.route("/")
-def index():
+def mainPage():
     return page("index.html")
 
 
-@app.route("/demo")
-def test():
-    return page("demo.html")
+@app.route("/<query>")
+def getPage(query):
+    try:
+        if query[-5:] == ".html":
+            path = query
 
+        elif query[-4:] == ".htm":
+            path = f"{query}l"
 
-@app.route("/bot")
-def bot():
-    return page("bot.html")
+        else:
+            path = f"{query}.html"
 
+        return page(path)
 
-@app.route("/test")
-def demo():
-    return page("test.html")
-
-
-@app.route('/kanobu')
-def kanobu():
-    return page("kanobu.html")
-
-
-@app.route('/projects')
-def projects():
-    return page("projects.html")
-
-
-@app.route('/ligatures')
-def ligatures():
-    return page("ligatures.html")
-
-
-@app.route('/lorem')
-def lorem():
-    return page("lorem.html")
+    except FileNotFoundError:
+        return page("404.html")
