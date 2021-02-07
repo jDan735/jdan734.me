@@ -99,3 +99,12 @@ hue-6-2: #e6c07b
 .hljs {
   border-radius: 4px;
 }
+
+.hljs {
+    padding: 15px !important;
+    border-radius: 10px;
+}
+
+.hljs {
+    font-weight: 500;
+}

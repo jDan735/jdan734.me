@@ -17,8 +17,6 @@
     <link rel="stylesheet" href="/css/atom-one-dark.css">
     <link rel="stylesheet" href="/css/style.css?v=3.0.2">
 
-    <style>pre {padding: 0;} pre code {padding: 15px !important; border-radius: 10px;}</style>
-
     <title>jdan734-bot</title>
 </head>
 <body class="index">
@@ -37,20 +35,22 @@
         <p>Multifunctional telegram bot for banning and stuff :)</p>
         <h2>🚀 Start</h2>
         <p>To start, run this code:</p>
-        <pre><code class="bash">cd bot<br>python bot/bot.py</code></pre>
-        <p>or you can start code without install</p>
-        <pre><code class="bash">python __main__.py</code></pre>
+        <code class="hljs bash">
+            <span class="hljs-built_in">cd</span>
+            <span class="hljs-string">bot</span>
+            <br>
+            <span class="hljs-title">python</span>
+            <span class="hljs-string">index.py</span>
+        </code>
 
         <h2>🔑 Token</h2>
         <p>You can get token from <a href="t.me/BotFather">BotFather</a>.<br>After you must create file token.json in / if you not use environ:</p>
-        <pre><code class="json">{
-    "token": "XXXXXXXXXXX"
-}</code></pre>
+        <pre><code class="json">{<br>&nbsp;&nbsp;&nbsp;&nbsp;"token": "XXXXXXXXXXX"<br>}</code></pre>
         <p>Else you must create code TOKEN in environ with your token.</p>
 
         <h2>Тестирование бота</h2>
 
-        <table class="github uneven">
+        <table class="github">
             <thead>
               <td>Команда</td>
               <td>Описание</td>
@@ -67,17 +67,14 @@
             <tr>
                 <td>/to_json</td>
                 <td> Переводит python dict в json <br/>
-                     <span class="table-code">{<span class="redb1">'a'</span>: <span class="orangeb">None</span>}</span> =&gt; <span class="table-code">{<span class="redb1">"a"</span>: <span class="orangeb">false</span>}</span>
-                     &nbsp;
+                     <pre><code class="python">{'a': None} =&gt; {"a": false}</code></pre>
                 </td>
                 <td rowspan="2">👍 Stable</td>
             </tr>
             <tr>
                 <td>/to_yaml</td>
                 <td>Переводит json в yaml <br/>
-                     <span class="table-code">{<span class="redb1">'a'</span>: <span class="orangeb">false</span>}</span> 
-                     =&gt;
-                     <span class="table-code"><span class="redb1">a</span>: <span class="orangeb">false</span></span>
+                     <pre><code class="yaml">{"a": false} =&gt; a: false</pre>
                 </td>
             </tr>
             <tr>
@@ -98,7 +95,7 @@
                 <td>/uptime</td>
                 <td>Время работы бота</td>
             </tr>
-            <tr style="background: yellowgreen; color: #fff; text-align: center;">
+            <tr class="table_header">
                 <td colspan="4">Математика</td>
             </tr>
             <tr>
@@ -111,7 +108,7 @@
                 <td>Вычисление корней</td>
                 <td>⚠️ Beta</td>
             </tr>
-            <tr style="background: yellowgreen; color: #fff; text-align: center;">
+            <tr class="table_header">
                   <td colspan="4">Онлайн-ресурсы</td>
             </tr>
             <tr>
@@ -119,7 +116,7 @@
                 <td>Просмотр википедии</td>
                 <td>⚠️ Beta</td>
             </tr>
-            <tr style="background: yellowgreen; color: #fff; text-align: center;">
+            <tr class="table_header">
                   <td colspan="4">Работа с текстом</td>
             </tr>
             <tr>
@@ -135,8 +132,8 @@
                 <td>/title</td>
                 <td>Каждое слово с заглавной буквы</td>
             </tr>
-               <tr style="background: yellowgreen; color: #fff; text-align: center;">
-                  <td colspan="4">Работа с изображениями</td>
+            <tr class="table_header">
+                <td colspan="4">Работа с изображениями</td>
             </tr>
             <tr>
                 <td>/resize</td>
@@ -156,7 +153,7 @@
                 <td>Создание ASCII артов</td>
                 <td>⚠️ Beta</td>
             </tr>
-            <tr style="background: yellowgreen; color: #fff; text-align: center;">
+            <tr class="table_header">
                   <td colspan="4">Шифровая херня</td>
             </tr>
             <tr>
@@ -168,7 +165,7 @@
                 <td>/generate_password</td>
                 <td>Генерация паролей</td>
             </tr>
-            <tr style="background: yellowgreen; color: #fff; text-align: center;">
+            <tr class="table_header">
                   <td colspan="4">Мемы</td>
             </tr>
             <tr>
@@ -192,7 +189,7 @@
             <tr>
                 <td>/ban</td>
                 <td>Отправляет бан</td>
-                <td rowspan="3">👍 Stable</td>
+                <td>👍 Stable</td>
             </tr>
         </table>
 
