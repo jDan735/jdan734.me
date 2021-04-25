@@ -1,13 +1,16 @@
-from server.server import app, page
+from .server import app, page
+
+from sanic.response import json
 
 
 @app.route("/")
-def mainPage():
+async def mainPage(request):
     return page("index.html")
 
 
 @app.route("/<query>")
-def getPage(query):
+async def getPage(request, query):
+    print(query)
     try:
         if query[-5:] == ".html":
             path = query

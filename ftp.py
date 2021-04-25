@@ -1,5 +1,4 @@
-from flask import request, render_template, Markup, Response
-from server.server import app, page
+from server.server import app, page, html, template
 import os
 
 s = "/" if os.name == "posix" or os.name == "macos" else "\\"
@@ -19,52 +18,53 @@ def file_size(file_path):
 
 
 @app.route('/ftp/test/ban')
-def testban():
-    return ftp("/test/ban")
+async def testban(request):
+    return await ftp("/test/ban")
 
 
 @app.route('/ftp/test/test2')
-def test2():
-    return ftp("/test/test2")
+async def test2(request):
+    return await ftp("/test/test2")
 
 
 @app.route('/ftp/honka')
-def honka():
-    return ftp("/honka")
+async def honka(request):
+    return await ftp("/honka")
 
 
 @app.route('/ftp/code')
-def code():
-    return ftp("/code")
+async def code(request):
+    return await ftp("/code")
 
 
 @app.route('/ftp/code/tel-parser')
-def code_tel_parser():
-    return ftp("/code/tel-parser")
+async def code_tel_parser(request):
+    return await ftp("/code/tel-parser")
 
 
 @app.route('/ftp/code/jdan734-bot')
-def code_bot():
-    return ftp("/code/jdan734-bot")
+async def code_bot(request):
+    return await ftp("/code/jdan734-bot")
 
 
 @app.route('/ftp/code/jdan734-bot/flake8')
-def code_bot_flake8():
-    return ftp("/code/jdan734-bot/flake8")
+async def code_bot_flake8(request):
+    return await ftp("/code/jdan734-bot/flake8")
 
 
 @app.route('/ftp/test')
-def test3():
-    return ftp('/test')
+async def ftp2(request):
+    return await ftp('/test')
 
 
-@app.route('/ftp')
-@app.route('/ftp/')
-def ftp1():
-    return ftp()
+@app.route("/ftp")
+async def ftp4(request):
+    return await ftp()
 
 
-def ftp(path=""):
+@template("ftp.html")
+async def ftp(path=""):
+    print("test")
     file_path = os.path.abspath(os.path.dirname(__file__))
     this = None
 
@@ -121,7 +121,9 @@ def ftp(path=""):
     folders_table = "<tr><td>😀</td><td>Name</td><td>MIME-type</td><td>Size</td></tr>"
 
     for b in this[0]:
-        folders += f'<tr><td>📂</td><td><a class=emoji href="{fp.replace(s + "static", "")}{s}{b}">{b}/</a></td><td>inode/directory</td><td>-</td></tr>'
+        path_ = (fp.replace(s + "static", "") + s + b).replace("\\\\", "\\") \
+                                                      .replace("//", "/")
+        folders += f'<tr><td>📂</td><td><a class=emoji href="{path_}">{b}/</a></td><td>inode/directory</td><td>-</td></tr>'
 
     if folders == "":
         folders_table = ""
@@ -158,7 +160,7 @@ def ftp(path=""):
                              .replace(s, "/") \
                              .replace("//", "/")
 
-    return render_template("ftp.html",
-                           title=h1,
-                           content=Markup("<table>" + folders_table + folders +
-                                          files_table + files))
+    return {
+        "title": h1,
+        "content": "<table>" + folders_table + folders + files_table + files
+    }
