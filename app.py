@@ -1,3 +1,4 @@
-from flask import Flask
+from sanic import Sanic
 
-app = Flask(__name__, static_url_path="/")
+app = Sanic(__name__)
+app.static('/', './static/')

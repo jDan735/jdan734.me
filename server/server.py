@@ -1,28 +1,33 @@
-from os import environ
-
-import psycopg2
-import json
+from sanic.response import html
+from jinja2 import Template
 import sys
 
 sys.path.append('../')
 from app import app
 
 
-def page(file_name):
-    with open(f"html/{file_name}", encoding="utf-8") as file:
-        return file.read()
+def page(name):
+    return sopen(name, "html/{name}", wrapper=html)
 
 
-if "DATABASE_URL" in environ:
-    conn = psycopg2.connect(environ["DATABASE_URL"],
-                           sslmode='require')
-else:
-    with open("dbconf.json") as bdconf_file:
-        bdconf = json.loads(bdconf_file.read())
-        conn = psycopg2.connect(**bdconf)
+def template(name):
+    return sopen(name)
 
-try:
-    cur = conn.cursor()
-    cur.execute("CREATE TABLE games (username TEXT, gamer INTEGER, bot INTEGER, result INTEGER)")
-except:
-    pass
+
+def template(name):
+    def outer(func):
+        async def wrapper(*args, **kwargs):
+            temp = Template(sopen(name))
+            return html(temp.render(**await func(*args, **kwargs)))
+
+        return wrapper
+
+    return outer
+
+
+def sopen(name, path_template="templates/{name}", wrapper=lambda x: x):
+    with open(path_template.format(name=name), encoding="utf-8") as f:
+        return wrapper(f.read())
+
+
+# FTP_TEMPLATE = Template(template("ftp.html"))

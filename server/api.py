@@ -1,18 +1,18 @@
-from server.server import app, page, conn
-from flask import request, jsonify
+from .server import app, page #, conn
+from sanic.response import json
+
 from random import randint
 
 
-params = {}
-arguments = [
-    ["action", str],
-    ["limit", int],
-    ["format", str],
-    ["username", str],
-    ["gamer", int],            # Gamer's choice
-    ["bot", int],              # Bot's choice
-    ["result", int]
-]
+arguments = {
+    "action": str,
+    "limit": int,
+    "format": str,
+    "username": str,
+    "gamer": int,
+    "bot": int,
+    "result": int
+}
 
 
 class APIError:
@@ -71,20 +71,32 @@ japi = jDan734api()
 
 
 @app.route("/api")
-def getApi():
-    for arg in arguments:
-        params[arg[0]] = request.args.get(arg[0], type=arg[1])
+async def getApi(response):
+    params = {}
 
-    if params["action"] is None:
+    for arg in arguments:
+        value = response.args.get(arg)
+
+        if value is not None:
+            try:
+                params[arg] = arguments[arg](value)
+            except (TypeError, ValueError):
+                params[arg] = None
+        else:
+            params[arg] = None
+
+
+    if params.get("action") is None:
         return page("api.html")
 
-    if params["action"][0] == "_":
-        return jsonify({"error": "actions can't starts with _"})
+    elif params["action"][0] == "_":
+        return json({"error": "actions can't starts with _"})
 
     try:
         japi._prepare(**params)
-        return jsonify(japi.__getattribute__(params["action"])())
-    except AttributeError:
-        return jsonify({
+        return json(japi.__getattribute__(params["action"])())
+    except AttributeError as e:
+        print(e)
+        return json({
             "error": "action {} not found".format(params["action"])
         })
