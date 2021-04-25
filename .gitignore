@@ -4,3 +4,7 @@ bdconf.json
 package-lock.json 
 dbconf.json
 static/css_old
+.venv
+.env
+jdan734me.ini
+wsgi.py
