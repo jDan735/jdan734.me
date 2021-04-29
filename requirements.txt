@@ -1,7 +1,6 @@
-flask
+sanic
 beautifulsoup4
-requests
-gunicorn
 lxml
-wikipya==1.0.4
-psycopg2
+aiohttp
+wikipya
+jinja2
