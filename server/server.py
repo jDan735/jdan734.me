@@ -1,9 +1,11 @@
 from sanic.response import html
 from jinja2 import Template
+
 import sys
 
 sys.path.append('../')
 from app import app
+from .db import notes, events, pidorstats, warns
 
 
 def page(name):
@@ -31,3 +33,12 @@ def sopen(name, path_template="templates/{name}", wrapper=lambda x: x):
 
 
 # FTP_TEMPLATE = Template(template("ftp.html"))
+
+@app.route("/stats")
+@template("index.html")
+async def stats(request):
+    return {
+        "users": len(await events.get_unique_users()),
+        "notes": len(await notes.select()),
+        "warns": len(await warns.select())
+    }
