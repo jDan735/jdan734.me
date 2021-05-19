@@ -3,57 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/api.css?ban">
+    <link rel="stylesheet" href="/css/style.css?v=3.0.5">
     <title>jDan734's API</title>
 </head>
 <body>
-    <h1>jDan734's API help</h1>
-    <h2>Parameters</h2>
-    <dl>
-        <dt>action:</dt>
-        <dd>
-            Which action to perform
-            <dl>
-                <dt><a href="/api?action=ban">ban</a>:</dt>
-                <dd>Send info about ban: time and status</dd>
+    <nav>
+        <a href="/" class="logo">jdan734.me</a>
+        <ul>
+            <li><a href="/" class="home">Home</a></li><!--
+            --><li><a href="/lorem" class="lorem">Lorem</a></li><!--
+            --><li><a href="/wiki/wikipedia" class="wiki">Wikipedia</a></li><!--
+            --><li><a href="/ftp" class="ftp-menu">FTP</a></li><!--
+            --><li><a href="/bot" class="bot">Bot</a></li><!--
+            --><li><a href="/kanobu" class="kanobu">Kanobu</a></li>
+        </ul>
+    </nav>
 
-                <dt><a href="/api?action=random">random</a>:</dt>
-                <dd>Send random number from 0 to 1000</dd>
-            </dl>
-        </dd>
+    <div class="content">
+        <h1>jDan734's API help</h1>
+        <h2>Parameters</h2>
+        <dl>
+            <dt>action:</dt>
+            <dd>
+                Which action to perform
+                <dl>
+                    <dt><a href="/api?action=ban">ban</a>:</dt>
+                    <dd>Send info about ban: time and status</dd>
 
-        <dt>limit:</dt>
-        <dd>
-            Change limit
-            <ul class="unstyled">
-                <li><b>default</b>: 10</li>
-                <li><b>max</b>: 10000</li>
-            </ul>
-        </dd>
+                    <dt><a href="/api?action=random">random</a>:</dt>
+                    <dd>Send random number from 0 to 1000</dd>
+                </dl>
+            </dd>
 
-        <dt>format:</dt>
-        <dd>
-            The format of the output.
-            <dl>
-                <dt>json:</dt>
-                <dd>Output data in JSON format (default)</dd>
-            </dl>    
-        </dd>
-    </dl>
+            <dt>limit:</dt>
+            <dd>
+                Change limit
+                <ul class="unstyled">
+                    <li><b>default</b>: 10</li>
+                    <li><b>max</b>: 10000</li>
+                </ul>
+            </dd>
 
-    <h2>Examples</h2>
-    <ul>
-        <li>
-            Send random number (limit 126) <br>
-            <a href="/api?action=random&limit=126">api? action=random & limit=126</a>
-        </li>
-        <li>
-            Send information about ban <br>
-            <a href="/api?action=ban">api? action=ban</a>
-        </li>
-    </ul>
+            <dt>format:</dt>
+            <dd>
+                The format of the output.
+                <dl>
+                    <dt>json:</dt>
+                    <dd>Output data in JSON format (default)</dd>
+                </dl>    
+            </dd>
+        </dl>
 
-    <h2>Credits</h2>
-    <p>(C) 2020 jDan735</p>
+        <h2>Examples</h2>
+        <ul>
+            <li>
+                Send random number (limit 126) <br>
+                <a href="/api?action=random&limit=126">api? action=random & limit=126</a>
+            </li>
+            <li>
+                Send information about ban <br>
+                <a href="/api?action=ban">api? action=ban</a>
+            </li>
+        </ul>
+
+        <h2>Credits</h2>
+        <p>(C) 2020-2021 jDan735</p>
+    </div>
 </body>
 </html>
