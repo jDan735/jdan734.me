@@ -3,14 +3,8 @@ from .server import app, page
 from sanic.response import json
 
 
-@app.route("/")
-async def mainPage(request):
-    return page("index.html")
-
-
 @app.route("/<query>")
 async def getPage(request, query):
-    print(query)
     try:
         if query[-5:] == ".html":
             path = query
@@ -23,5 +17,5 @@ async def getPage(request, query):
 
         return page(path)
 
-    except FileNotFoundError:
+    except Exception:
         return page("404.html")

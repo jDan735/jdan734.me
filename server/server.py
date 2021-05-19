@@ -34,7 +34,7 @@ def sopen(name, path_template="templates/{name}", wrapper=lambda x: x):
 
 # FTP_TEMPLATE = Template(template("ftp.html"))
 
-@app.route("/stats")
+@app.route("/")
 @template("index.html")
 async def stats(request):
     return {
@@ -42,3 +42,9 @@ async def stats(request):
         "notes": len(await notes.select()),
         "warns": len(await warns.select())
     }
+
+
+@app.route("/bootstrap")
+@template("bootstrap.html")
+async def bs4(request):
+    return {}
