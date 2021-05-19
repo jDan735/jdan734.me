@@ -118,7 +118,7 @@ async def ftp(path=""):
         [["txt"], "🗒", "text/plain"]
     ]
 
-    folders_table = "<tr><td>😀</td><td>Name</td><td>MIME-type</td><td>Size</td></tr>"
+    folders_table = "<thead><td>😀</td><td>Name</td><td>MIME-type</td><td>Size</td></thead>"
 
     for b in this[0]:
         path_ = (fp.replace(s + "static", "") + s + b).replace("\\\\", "\\") \
