@@ -15,7 +15,8 @@
             color: white;
 
             .link__emoji, .link__text {
-                padding: 5px 10px 5px 10px;
+                // padding: 5px 10px 5px 10px;
+                padding: 7px 12px;
             }
 
             .link__emoji {
@@ -26,6 +27,24 @@
             .link__text {
                 border-radius: 0 4px 4px 0;
                 background: #28292d;
+            }
+
+            .link__emoji, .link__text {
+                transition: .3s background;
+            }
+
+            &:hover {
+                .link__emoji {
+                    background: #222222;
+                }
+
+                .link__text {
+                    background: #393a3c;
+                }
+
+                .link__emoji, .link__text {
+                    transition: .3s background;
+                }
             }
         }
     }
