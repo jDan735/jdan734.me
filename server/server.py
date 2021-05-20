@@ -1,4 +1,4 @@
-from sanic.response import html
+from sanic.response import html, json, text, file
 from jinja2 import Template
 
 import sys
@@ -48,3 +48,17 @@ async def stats(request):
 @template("bootstrap.html")
 async def bs4(request):
     return {}
+
+
+@app.route("/new_index")
+@template("new_index.html")
+async def index2(request):
+    return {}
+
+
+@app.route("/rss")
+async def rss(request):
+    return await file(
+        "templates/rss.xml",
+        headers={"Content-Type": "application/rss+xml"}
+    )
