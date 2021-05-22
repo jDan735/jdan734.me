@@ -24,8 +24,32 @@
         </ul>
     </nav>
     <div class="content">
-        <h1> {{ title }} </h1>
-        {{ content }}
+        <h1> Index of {{ path }} </h1>
+        <ul id="files">
+            {% for files in walk %}
+
+                {% if loop.index == 1 %}
+                    {% for file in files %}
+                    <li class="file folder"><a href="{{ path }}/{{ file }}">
+                        <img src="/images/Generic Folder.png"
+                             class="file_icon"></img>
+                        <span class="file_name">{{ file }}</span>
+                    </a></li>
+                    {% endfor %}
+                {% endif %}
+
+                {% if loop.index == 2 %}
+                    {% for file in files %}
+                    <li class="file document"><a href="{{ path }}/{{ file }}">
+                        <img src="/images/Generic Document.png"
+                             class="file_icon"></img>
+                        <span class="file_name">{{ file }}</span>
+                    </a></li>
+                    {% endfor %}
+                {% endif %}
+
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

@@ -12,8 +12,8 @@ def page(name):
     return sopen(name, "html/{name}", wrapper=html)
 
 
-def template(name):
-    return sopen(name)
+def inline_template(name, params):
+    return html(Template(sopen(name)).render(**params))
 
 
 def template(name):
