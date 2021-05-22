@@ -1,6 +1,7 @@
 from .server import app, page
 
 from sanic.response import json
+from sanic.exceptions import NotFound
 
 
 @app.route("/<query>")
@@ -18,4 +19,4 @@ async def getPage(request, query):
         return page(path)
 
     except Exception:
-        return page("404.html")
+        raise NotFound("Not found page")

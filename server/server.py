@@ -1,5 +1,5 @@
 from sanic.response import html, json, text, file
-from jinja2 import Template
+from jinja2 import Template, Environment, FileSystemLoader
 
 import sys
 
@@ -12,15 +12,18 @@ def page(name):
     return sopen(name, "html/{name}", wrapper=html)
 
 
-def inline_template(name, params):
-    return html(Template(sopen(name)).render(**params))
-
-
 def template(name):
     def outer(func):
         async def wrapper(*args, **kwargs):
-            temp = Template(sopen(name))
-            return html(temp.render(**await func(*args, **kwargs)))
+            params = await func(*args, **kwargs)
+
+            if not isinstance(params, dict):
+                return params
+
+            env = Environment(loader=FileSystemLoader("templates"))
+            template = env.get_template(name)
+
+            return html(template.render(**params))
 
         return wrapper
 
@@ -34,8 +37,8 @@ def sopen(name, path_template="templates/{name}", wrapper=lambda x: x):
 
 # FTP_TEMPLATE = Template(template("ftp.html"))
 
-@app.route("/")
-@template("index.html")
+@app.route("/old")
+@template("index_old.html")
 async def stats(request):
     return {
         "users": len(await events.get_unique_users()),
@@ -50,10 +53,18 @@ async def bs4(request):
     return {}
 
 
-@app.route("/new_index")
-@template("new_index.html")
-async def index2(request):
+@app.route("/lorem")
+@template("lorem.html")
+async def bs4(request):
     return {}
+
+
+@app.route("/")
+@template("index.html")
+async def index2(request):
+    return {
+        "status": "dev"
+    }
 
 
 @app.route("/rss")

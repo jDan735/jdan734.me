@@ -1,15 +1,18 @@
 from sanic.exceptions import NotFound
-from .server import app, page
+from .server import app, page, template
 
 
 @app.exception(NotFound)
+@template("404.html")
 async def not_found(request, exception):
-    return page("404.html")
+    print(exception)
+    return {}
 
 
-# @app.errorhandler(500)
-# async def internal_error(error):
-#     return page("500.html")
+@app.exception(Exception)
+@template("500.html")
+async def internal_error(request, exception):
+    return {"error": exception}
 
 
 @app.route('/0')

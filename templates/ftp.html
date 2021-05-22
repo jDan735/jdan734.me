@@ -1,55 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
+{% block title %}Files{% endblock %}
+{% block menu_ftp %}active{% endblock %}
+{% block content %}
+    <h1> Index of {{ path }} </h1>
+    <ul id="files">
+        {% for files in walk %}
+            {% if loop.index == 1 %}
+                {% for file in files %}
+                <li class="file folder"><a href="{{ path }}/{{ file }}">
+                    <img src="/images/Generic Folder.png"
+                         class="file_icon"></img>
+                    <span class="file_name">{{ file }}</span>
+                </a></li>
+                {% endfor %}
+            {% endif %}
 
-    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
-    <link rel="stylesheet" href="/css/style.css?v=3.0.5">
+            {% if loop.index == 2 %}
+                {% for file in files %}
+                <li class="file document"><a href="{{ path }}/{{ file }}">
+                    <img src="/images/Generic Document.png"
+                         class="file_icon"></img>
+                    <span class="file_name">{{ file }}</span>
+                </a></li>
+                {% endfor %}
+            {% endif %}
 
-    <title>{{ title }}</title>
-</head>
-<body>
-    <nav>
-        <a href="/" class="logo">jdan734.me</a>
-        <ul>
-            <li><a href="/" class="home">Home</a></li><!--
-            --><li><a href="/lorem" class="lorem">Lorem</a></li><!--
-            --><li><a href="/wiki/wikipedia" class="wiki">Wikipedia</a></li><!--
-            --><li><a href="/ftp" class="ftp-menu active">FTP</a></li><!--
-            --><li><a href="/bot" class="bot">Bot</a></li><!--
-            --><li><a href="/kanobu" class="kanobu">Kanobu</a></li>
-        </ul>
-    </nav>
-    <div class="content">
-        <h1> Index of {{ path }} </h1>
-        <ul id="files">
-            {% for files in walk %}
-
-                {% if loop.index == 1 %}
-                    {% for file in files %}
-                    <li class="file folder"><a href="{{ path }}/{{ file }}">
-                        <img src="/images/Generic Folder.png"
-                             class="file_icon"></img>
-                        <span class="file_name">{{ file }}</span>
-                    </a></li>
-                    {% endfor %}
-                {% endif %}
-
-                {% if loop.index == 2 %}
-                    {% for file in files %}
-                    <li class="file document"><a href="{{ path }}/{{ file }}">
-                        <img src="/images/Generic Document.png"
-                             class="file_icon"></img>
-                        <span class="file_name">{{ file }}</span>
-                    </a></li>
-                    {% endfor %}
-                {% endif %}
-
-            {% endfor %}
-        </ul>
-    </div>
-</body>
-</html>
+        {% endfor %}
+    </ul>
+{% endblock %}

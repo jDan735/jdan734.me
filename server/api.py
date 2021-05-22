@@ -1,4 +1,4 @@
-from .server import app, page #, conn
+from .server import app, page, template
 from sanic.response import json
 
 from random import randint
@@ -71,6 +71,7 @@ japi = jDan734api()
 
 
 @app.route("/api")
+@template("api.html")
 async def getApi(response):
     params = {}
 
@@ -87,7 +88,9 @@ async def getApi(response):
 
 
     if params.get("action") is None:
-        return page("api.html")
+        return {
+            "status": "dev"
+        }
 
     elif params["action"][0] == "_":
         return json({"error": "actions can't starts with _"})

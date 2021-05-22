@@ -1,6 +1,8 @@
 from sanic.exceptions import NotFound
+from sanic.response import redirect
+
 from wikipya.aiowiki import Wikipya
-from .server import app, page, template
+from .server import app, page, template, json
 
 
 WGR_FLAG = (
@@ -18,11 +20,12 @@ WRW_FLAG = (
 @app.route("/wiki")
 async def wikimain(response):
     title = response.args.get("title")
+    lang = response.args.get("lang")
 
     if title is None:
         return page("wiki.html")
     else:
-        return await wiki(title)
+        return await wiki(response=response, name=title, lang=lang)
 
 
 def makeBelarus(text):
@@ -48,9 +51,14 @@ def makeBelarus(text):
 
 
 @app.route('/wiki/<name>')
+async def wiki_handler(response, name=None):
+#    return await wiki(response, name)
+    return redirect(f"/wiki?title={name}")
+
+
 @template("wikipage.html")
-async def wiki(response=None, name=None):
-    wiki = Wikipya("ru")
+async def wiki(response=None, name=None, lang=None):
+    wiki = Wikipya("ru" if lang is None else lang)
     search = await wiki.search(name)
 
     if search == -1:
