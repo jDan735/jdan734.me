@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Wikipedia{% endblock %}
+{% block menu_wikipedia %}active{% endblock %}
+{% block content %}    
+    <h1>Wikipedia</h1>
+    <div class="demo">
+        <form action="/wiki">
+            <input name="title"><!--
+            --><button type="submit">Send</button>
+        </form>
+    </div>
+{% endblock %}

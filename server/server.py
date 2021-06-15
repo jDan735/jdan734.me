@@ -61,7 +61,7 @@ async def bs4(request):
 
 @app.route("/")
 @template("index.html")
-async def index2(request):
+async def index(request):
     return {
         "status": "dev"
     }

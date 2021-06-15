@@ -8,7 +8,7 @@
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
-    <link rel="stylesheet" href="/css/style.css?v=3.0.5">
+    <link rel="stylesheet" href="/css/style.css?v=3.0.6">
 
     <meta property="og:site_name" content="jdan734.me">
     <meta property="og:title" content="Home"/>
@@ -20,16 +20,18 @@
 </head>
 <body>
     <nav {% block nav %}{% endblock %}>
+        <input type="checkbox" id="menu"/>
+        <label for="menu">🍔</label>
         {% if status != "dev" and status != "alpha" %}
             <a href="/" class="logo">jdan734.me</a>
         {% endif %}
 
         {% if status == "dev" %}
-            <a href="/" class="logo">jdan734.me<span style="color: orange;">::dev</span></a>
+            <a href="/" class="logo">jdan734.me<sup style="color: orange;">β</sup></a>
         {% endif %}
 
         {% if status == "alpha" %}
-            <a href="/" class="logo">jdan734.me<span style="color: #d50000;">::alpha</span></a>
+            <a href="/" class="logo">jdan734.me<sup style="color: #d50000;">α</sup></a>
         {% endif %}
         <ul><!--
             --><li><a class="home {% block menu_index %}{% endblock %}"

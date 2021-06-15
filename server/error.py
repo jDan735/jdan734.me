@@ -5,7 +5,6 @@ from .server import app, page, template
 @app.exception(NotFound)
 @template("404.html")
 async def not_found(request, exception):
-    print(exception)
     return {}
 
 

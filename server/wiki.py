@@ -18,12 +18,13 @@ WRW_FLAG = (
 
 
 @app.route("/wiki")
+@template("wiki.html")
 async def wikimain(response):
     title = response.args.get("title")
     lang = response.args.get("lang")
 
     if title is None:
-        return page("wiki.html")
+        return {"status": "dev"}
     else:
         return await wiki(response=response, name=title, lang=lang)
 
@@ -64,7 +65,7 @@ async def wiki(response=None, name=None, lang=None):
     if search == -1:
         raise NotFound()
 
-    page = await wiki.page(search[0])
+    page = await wiki._page(search[0], 999999999999999)
 
     if page == -1:
         text = ""
