@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og://ogp.me/ns#">
 <head>
-    {% block head %}
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -15,50 +15,48 @@
     <meta property="og:image" content="/images/jdan_frog.jpg"/>
     <meta property="og:description" content="Kaiser's personal site, hosted in Linode." />
 
-    <title>{% block title %}{% endblock %}</title>
-    {% endblock %}
+    <title>404</title>
+    
 </head>
 <body>
-    <nav {% block nav %}{% endblock %}>
+    <nav >
         <input type="checkbox" id="menu"/>
         <label for="menu">🍔</label>
-        {% if status != "dev" and status != "alpha" %}
+        
             <a href="/" class="logo">jdan734.me</a>
-        {% endif %}
+        
 
-        {% if status == "dev" %}
-            <a href="/" class="logo">jdan734.me<sup style="color: orange;">β</sup></a>
-        {% endif %}
+        
 
-        {% if status == "alpha" %}
-            <a href="/" class="logo">jdan734.me<sup style="color: #d50000;">α</sup></a>
-        {% endif %}
+        
         <ul><!--
-            --><li><a class="home {% block menu_index %}{% endblock %}"
+            --><li><a class="home "
                       href="/">Home</a></li><!--
 
-            --><li><a class="lorem {% block menu_lorem %}{% endblock %}"
+            --><li><a class="lorem "
                       href="/lorem">Lorem</a></li><!--
 
-            --><li><a class="wiki {% block menu_wikipedia %}{% endblock %}"
+            --><li><a class="wiki "
                       href="/wiki/wikipedia">Wikipedia</a></li><!--
 
-            --><li><a class="ftp-menu {% block menu_ftp %}{% endblock %}"
+            --><li><a class="ftp-menu "
                       href="/ftp">Files</a></li><!--
 
-            --><li><a class="api {% block menu_api %}{% endblock %}"
+            --><li><a class="api "
                       href="/api">API</a></li><!--
 
-            --><li><a class="rss {% block menu_rss %}{% endblock %}"
+            --><li><a class="rss "
                       href="/rss">RSS</a></li>
         </ul>
     </nav>
 
-    {% block body %}
+    
         <div class="content">
-            {% block content %}
-            {% endblock %}
+                
+    <h1>Not Found</h1>
+    <p>Ребята, не стоит вскрывать эту тему. Вы молодые, шутливые, вам все легко. Это не то. Это не Чикатило и даже не архивы спецслужб. Сюда лучше не лезть. Серьезно, любой из вас будет жалеть. Лучше <a href="/">уйдите</a> и забудьте, что тут писалось. Я вполне понимаю, что данным сообщением вызову дополнительный интерес, но хочу сразу предостеречь пытливых - стоп. Остальные просто не найдут</p>
+
         </div>
-    {% endblock %}
+    
 </body>
 </html>

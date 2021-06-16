@@ -1,6 +1,0 @@
-sanic
-beautifulsoup4
-lxml
-aiohttp
-wikipya
-jinja2

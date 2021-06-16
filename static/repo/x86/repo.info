@@ -1,6 +1,0 @@
-name "KapiX's Depot"
-vendor "KapiX's Depot"
-summary "KapiX's x86 package repository"
-priority 2
-url <http://haiku.kacperkasper.pl/repo/x86>
-architecture x86
