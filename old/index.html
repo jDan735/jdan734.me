@@ -1,17 +1,64 @@
-{% extends "base.html" %}
-{% block head %}
+<!DOCTYPE html>
+<html lang="en" prefix="og://ogp.me/ns#">
+<head>
+    
 
-    {{ super() }}
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
+    <link rel="stylesheet" href="/css/style.css?v=3.0.6">
+
+    <meta property="og:site_name" content="jdan734.me">
+    <meta property="og:title" content="Home"/>
+    <meta property="og:image" content="/images/jdan_frog.jpg"/>
+    <meta property="og:description" content="Kaiser's personal site, hosted in Linode." />
+
+    <title>jDan734</title>
+    
 
     <link rel="stylesheet" href="/css/fullpage.min.css">
     <link rel="stylesheet" href="/css/test.css">
     <link rel="stylesheet" href="/css/card.css?v">
 
-{% endblock %}
-{% block title %}jDan734{% endblock %}
-{% block menu_index %}active{% endblock %}
-{% block nav %}style="position: absolute; z-index: 70;"{% endblock %}
-{% block body %}
+
+</head>
+<body>
+    <nav style="position: absolute; z-index: 70;">
+        <input type="checkbox" id="menu"/>
+        <label for="menu">🍔</label>
+        
+            <a href="/" class="logo">jdan734.me</a>
+        
+
+        
+
+        
+        <ul><!--
+            --><li><a class="home active"
+                      href="/">Home</a></li><!--
+
+            --><li><a class="lorem "
+                      href="lorem">Lorem</a></li><!--
+
+            --><li><a class="wiki "
+                      href="/wiki/wikipedia">Wikipedia</a></li><!--
+
+            --><li><a class="ftp-menu "
+                      href="/ftp">Files</a></li><!--
+
+            --><li><a class="api "
+                      href="/api">API</a></li><!--
+
+            --><li><a class="rss "
+                      href="/rss">RSS</a></li>
+        </ul>
+    </nav>
+
+    
     <div id="fullpage">
         <div style="background-color: #1A2A44;
 background-image: linear-gradient(315deg, #1A2A44 0%, #161D30 74%);" class="section">
@@ -86,4 +133,6 @@ background-image: linear-gradient(147deg, #434343 0%, #1C1C1C 74%); text-align: 
             scrollHorizontally: true,
         });
     </script>
-{% endblock %}
+
+</body>
+</html>

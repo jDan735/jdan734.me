@@ -10,7 +10,7 @@ function css(){
            .pipe(sass())
 		   .pipe(prefixer())
            .pipe(cssmin())
-           .pipe(dest('./static/css'))
+           .pipe(dest('./css'))
 }
 
 exports.default = css

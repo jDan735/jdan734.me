@@ -7,6 +7,7 @@ app = Sanic(__name__)
 app.static('image', 'image')
 app.static('html', 'html')
 app.static('css', 'css')
+app.static('old', 'old')
 app.static('js', 'js')
 
 

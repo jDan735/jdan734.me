@@ -1,0 +1,28 @@
+.content {
+    width: 75%;
+    padding-bottom: 20px;
+    margin: 0 auto;
+
+    h1 {
+        &.error {
+            color: #c00;
+        }
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    table {
+        tr.table_header {
+            background: #42729C;
+            text-align: center;
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .content {
+        width: 85%;
+    }
+}
