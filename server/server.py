@@ -1,33 +1,46 @@
-from sanic.response import html, json, text, file
-from jinja2 import Template, Environment, FileSystemLoader
+from fastapi import FastAPI, Request, Response
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
 
-import sys
-
-sys.path.append('../')
-from app import app
-from .db import notes, events, pidorstats, warns
+import pymemeru
 
 
-def page(name):
-    return sopen(name, "html/{name}", wrapper=html)
+exceptions = {
+    404: lambda r, e: get_template(r, "404.html", {}),
+    500: lambda r, e: get_template(r, "500.html", {})
+}
+
+app = FastAPI(exception_handlers=exceptions)
+templates = Jinja2Templates(directory="templates")
+
+app.mount("/css", StaticFiles(directory="css"), name="static_css")
+app.mount("/images", StaticFiles(directory="images"), name="static_images")
+app.mount("/js", StaticFiles(directory="js"), name="static_js")
+# from .db import notes, events, pidorstats, warns
 
 
 def template(name):
     def outer(func):
         async def wrapper(*args, **kwargs):
-            params = await func(*args, **kwargs)
-
-            if not isinstance(params, dict):
-                return params
-
-            env = Environment(loader=FileSystemLoader("templates"))
-            template = env.get_template(name)
-
-            return html(template.render(**params))
+            request, params = await func(*args, **kwargs)
+            return templates.TemplateResponse(name, {"request": request, **params})
 
         return wrapper
 
     return outer
+
+
+def get_template(request, name, params):
+    print(params)
+
+    return templates.TemplateResponse(
+        name,
+        {
+            "request": request,
+            **params
+        }
+    )
 
 
 def sopen(name, path_template="templates/{name}", wrapper=lambda x: x):
@@ -37,39 +50,76 @@ def sopen(name, path_template="templates/{name}", wrapper=lambda x: x):
 
 # FTP_TEMPLATE = Template(template("ftp.html"))
 
-@app.route("/old")
-@template("index_old.html")
-async def stats(request):
-    return {
-        "users": len(await events.get_unique_users()),
-        "notes": len(await notes.select()),
-        "warns": len(await warns.select())
-    }
-
 
 @app.route("/bootstrap")
-@template("bootstrap.html")
-async def bs4(request):
-    return {}
+async def bs4(request: Request):
+    return get_template(request, "bootstrap.html", {})
 
 
 @app.route("/lorem")
-@template("lorem.html")
-async def bs4(request):
-    return {}
-
-
-@app.route("/")
-@template("index.html")
-async def index(request):
-    return {
-        "status": "dev"
-    }
+async def bs4(request: Request):
+    return get_template(request, "lorem.html", {})
 
 
 @app.route("/rss")
-async def rss(request):
-    return await file(
-        "templates/rss.xml",
-        headers={"Content-Type": "application/rss+xml"}
-    )
+async def rss(request: Request, response_class=Response):
+    return get_template(request, "rss.xml", {})
+
+
+@app.get("/", response_class=HTMLResponse)
+async def index(request: Request):
+    return get_template(request, "index.html", {
+        "status": "dev"
+    })
+
+
+@app.get("/new", response_class=HTMLResponse)
+async def index(request: Request):
+    return get_template(request, "index_new.html", {
+        "status": "dev"
+    })
+
+
+@app.get("/memepedia/{page_name}", response_class=HTMLResponse)
+async def index(request: Request, page_name: str):
+    page = await pymemeru.page(page_name)
+
+    return get_template(request, "memepedia_page.html", {
+        "status": "dev",
+        "text": str(page.cleared_text),
+        "title": page.title,
+        "img": page.main_image,
+        "trending": (await pymemeru.popular())[:10],
+        "time_publication": page.published_at,
+        "author_name": page.author_name,
+        "comments": page.comments,
+        "views": page.views
+    })
+
+
+@app.get("/memepedia", response_class=HTMLResponse)
+async def index(request: Request):
+    return get_template(request, "memepedia.html", {
+        "status": "dev",
+        "trending": await get_popular()
+    })
+
+
+async def get_popular() -> list:
+    trends = await pymemeru.popular()
+
+    trends_new = []
+
+    for ind, __ in enumerate(trends):
+        a = trends[ind:ind + 4]
+
+        try:
+            trends.remove(a[1])
+            trends.remove(a[2])
+            trends.remove(a[3])
+        except:
+            pass
+
+        trends_new.append(a)
+
+    return trends_new

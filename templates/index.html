@@ -1,89 +1,146 @@
-{% extends "base.html" %}
-{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEST</title>
 
-    {{ super() }}
+    <link rel="stylesheet" href="css/pico.min.css">
+    <link rel="stylesheet" href="css/test.css?51">
 
-    <link rel="stylesheet" href="/css/fullpage.min.css">
-    <link rel="stylesheet" href="/css/test.css">
-    <link rel="stylesheet" href="/css/card.css?v">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.9.2/lottie.min.js" integrity="sha512-R47oG09eydaf225nXyDdSWJ8frKwxkC7QIHXdPpbUx9KaAiC6akjpWxTBw1hb7whk7P2sJNuRhS2ljSBegnIPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <nav class="container-fluid" {% block nav %}{% endblock %}>
+        <ul>
+            <li>
+            {% if status != "dev" and status != "alpha" %}
+                <a href="/" class="logo">jdan734.me</a>
+            {% endif %}
 
-{% endblock %}
-{% block title %}jDan734{% endblock %}
-{% block menu_index %}active{% endblock %}
-{% block nav %}style="position: absolute; z-index: 70;"{% endblock %}
-{% block body %}
-    <div id="fullpage">
-        <div style="background-color: #1A2A44;
-background-image: linear-gradient(315deg, #1A2A44 0%, #161D30 74%);" class="section">
-            <div class="content">
-                <h1>jDan734</h1>
-                <h2>Python junior. I know JavaScript (jQuery, Node JS, Gulp), CSS (SASS), HTML (Pug)</h2>
-                <ul class="contact__links">
-                    <li><a href="https://t.me/jdan734">
-                        <div class="link__emoji">✈️</div><!--
-                        --><div class="link__text">Telegram</div>
-                    </a></li>
-                    <li><a href="https://github.com/jdan735">
-                        <div class="link__emoji">🐙</div><!--
-                        --><div class="link__text">GitHub</div>
-                    </a></li>
-                    <li><a href="https://yoomoney.ru/to/41001911960333">
-                        <div class="link__emoji">❤️</div><!--
-                        --><div class="link__text">Donate</div>
-                    </a></li>
-                </ul>
+            {% if status == "dev" %}
+                <a href="/" class="logo">jdan734.me<sup style=" color: orange;">β</sup></a>
+            {% endif %}
+
+            {% if status == "alpha" %}
+                <a href="/" class="logo">jdan734.me<sup style="color: #d50000;">α</sup></a>
+            {% endif %}
+            </li>
+        </ul>
+        <ul>
+            <li><a class="home" href="/">Home</a></li>
+            <li><a class="wiki" href="/wiki/wikipedia"><s>Wikipedia</s></a></li>
+            <li><a class="memepedia" href="/memepedia">Memepedia</a></li>
+        </ul>
+    </nav>
+
+    <div style="background: #bdc3c7;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #2c3e50, #bdc3c7); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+     padding-bottom: 50px; padding-top: 50px;">
+        <div class="container" style="color: #fff;">
+            <h1 style="margin-bottom: 15px; color: #fff;">jDan734</h1>
+            <h3 style="font-weight: 500; width: 50%; color: #efefef; margin-bottom: 0px;">Python junior. I know JavaScript (jQuery, Node JS, Gulp), CSS (SASS), HTML (Pug)</h3>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <h2 style="margin-bottom: 15px;">Projects</h2>
+        <div class="grid">
+            <div>
+                <h4 style="font-size: 35px;">🤖</h4>
+                <h4>jDan734-bot</h4>
+                <p>Multifunctional telegram bot for banning and stuff :)</p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">✂️</h4>
+                <h4>Kanobu</h4>
+                <p>Simple and free implementation of the game "stone, scissors, paper" for your family)</p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">💻</h4>
+                <h4>Wikitermia</h4>
+                <p>Unoffical Wikipedia terminal client written in Go </p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">✂️</h4>
+                <h4>kanobuRPG</h4>
+                <p>WHEN WHEN WHEN</p>
             </div>
         </div>
-        <div style="background: #1A84BA; background-color: #2a2a72;
-background-image: linear-gradient(315deg, #2a2a72 0%, #1A84BA 74%);" class="section content">
-            <div class="content">
-                <h1>jDan734-bot</h1>
-                <h2>Multifunctional telegram bot for banning and stuff :)</h2>
-                <ul class="contact__links">
-                    <li><a href="https://t.me/jdan734-bot">
-                        <div class="link__emoji">✈️</div><!--
-                        --><div class="link__text">Telegram</div>
-                        </a></li>
-
-                    <li><a href="https://github.com/jDan735/jdan734-bot">
-                    <div class="link__emoji">🐙</div><!--
-                    --><div class="link__text">GitHub</div>
-                    </a></li>
-                </ul>
+        <div class="grid">
+            <div>
+                <h4 style="font-size: 35px;">🤡</h4>
+                <h4>WHEN</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">🤡</h4>
+                <h4>WHEN</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">🤡</h4>
+                <h4>WHEN</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+            </div>
+            <div>
             </div>
         </div>
-        <div style="background: #8E867B; background-color: #7f2f19;
-background-image: linear-gradient(315deg, #7f2f19 0%, #b46f47 74%);" class="section content">
-            <div class="content">
-                <h1>Kanobu</h1>
-                <h2>Simple and free implementation of the game "stone, scissors, paper" for your family)</h2>
-                <ul class="contact__links">
-                    <li><a href="https://github.com/jdan735/kanobu/">
-                    <div class="link__emoji">🐙</div><!--
-                    --><div class="link__text">GitHub</div>
-                    </a></li>
-
-                    <li><a href="https://pypi.org/project/kanobu/">
-                    <div class="link__emoji">🐍</div><!--
-                    --><div class="link__text">PyPi</div>
-                    </a></li>
-                </ul>
+        <div class="grid">
+            <div>
+                <h4 style="font-size: 35px;">🤡</h4>
+                <h4>WHEN</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
             </div>
+            <div>
+                <h4 style="font-size: 35px;">🤡</h4>
+                <h4>WHEN</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut.</p>
+            </div>
+            <div></div>
+            <div></div>
         </div>
-        <div style="background-color: #434343;
-background-image: linear-gradient(147deg, #434343 0%, #1C1C1C 74%); text-align: center;" class="section content">
-            <div class="content">
-                <h1>Other projects in my <a href="https://github.com/jdan735">GitHub</a></h1>
+    </div>
+    <br>
+    <div class="container">
+        <h2 style="margin-bottom: 10px;">Libraries</h2>
+        <div class="grid">
+            <div>
+                <h4 style="font-size: 35px;">🌳</h4>
+                <h4>TgHTML</h4>
+                <p>Multifunctional telegram bot for banning and stuff :)</p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">📘</h4>
+                <h4>aiovk_new</h4>
+                <p>Simple and free implementation of the game "stone, scissors, paper" for your family)</p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">📚</h4>
+                <h4>Wikipya</h4>
+                <p>A simple async python library for search pages and/or images in Wikipedia. </p>
+            </div>
+            <div>
+                <h4 style="font-size: 35px;">🤡</h4>
+                <h4>pymemeru</h4>
+                <p>Vk music downloader</p>
             </div>
         </div>
     </div>
+    <br><br><br><br>
 
-    <script src="/js/fullpage.min.js" type="text/javascript"></script>
     <script>
-        new fullpage('#fullpage', {
-            //options here
-            autoScrolling:true,
-            scrollHorizontally: true,
+        element = document.getElementById("kaiser")
+
+        lottie.loadAnimation({
+            container: element, // the dom element that will contain the animation
+            renderer: 'svg',
+            loop: true,
+            autoplay: false,
+            path: 'js/kaiser.json' // the path to the animation json
         });
     </script>
-{% endblock %}
+</body>
+</html>

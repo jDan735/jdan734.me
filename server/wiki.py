@@ -2,7 +2,7 @@ from sanic.exceptions import NotFound
 from sanic.response import redirect
 
 from wikipya.aiowiki import Wikipya
-from .server import app, page, template, json
+from .server import app, template#, page, template, json
 
 
 WGR_FLAG = (
@@ -59,13 +59,13 @@ async def wiki_handler(response, name=None):
 
 @template("wikipage.html")
 async def wiki(response=None, name=None, lang=None):
-    wiki = Wikipya("ru" if lang is None else lang)
+    wiki = Wikipya("ru" if lang is None else lang).get_instance()
     search = await wiki.search(name)
 
     if search == -1:
         raise NotFound()
 
-    page = await wiki._page(search[0], 999999999999999)
+    page = await wiki.page(search[0], 999999999999999)
 
     if page == -1:
         text = ""

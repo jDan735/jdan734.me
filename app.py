@@ -1,4 +1,4 @@
-from sanic import Sanic
+from fastapi import FastAPI
 
-app = Sanic(__name__)
-app.static('/', './static/')
+from server import *
+from server.server import app

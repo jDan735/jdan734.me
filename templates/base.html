@@ -8,7 +8,9 @@
     <link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/images/favicon-96x96.png" sizes="96x96">
-    <link rel="stylesheet" href="/css/style.css?v=3.0.6">
+
+    <link rel="stylesheet" href="/css/test.css?v=3.0.8">
+    <link rel="stylesheet" href="/css/pico.min.css">
 
     <meta property="og:site_name" content="jdan734.me">
     <meta property="og:title" content="Home"/>
@@ -19,43 +21,31 @@
     {% endblock %}
 </head>
 <body>
-    <nav {% block nav %}{% endblock %}>
-        <input type="checkbox" id="menu"/>
-        <label for="menu">🍔</label>
-        {% if status != "dev" and status != "alpha" %}
-            <a href="/" class="logo">jdan734.me</a>
-        {% endif %}
+    <nav class="container-fluid" {% block nav %}{% endblock %}>
+        <ul>
+            <li>
+            {% if status != "dev" and status != "alpha" %}
+                <a href="/" class="logo">jdan734.me</a>
+            {% endif %}
 
-        {% if status == "dev" %}
-            <a href="/" class="logo">jdan734.me<sup style="color: orange;">β</sup></a>
-        {% endif %}
+            {% if status == "dev" %}
+                <a href="/" class="logo">jdan734.me<sup style="color: orange;">β</sup></a>
+            {% endif %}
 
-        {% if status == "alpha" %}
-            <a href="/" class="logo">jdan734.me<sup style="color: #d50000;">α</sup></a>
-        {% endif %}
-        <ul><!--
-            --><li><a class="home {% block menu_index %}{% endblock %}"
-                      href="/">Home</a></li><!--
-
-            --><li><a class="lorem {% block menu_lorem %}{% endblock %}"
-                      href="/lorem">Lorem</a></li><!--
-
-            --><li><a class="wiki {% block menu_wikipedia %}{% endblock %}"
-                      href="/wiki/wikipedia">Wikipedia</a></li><!--
-
-            --><li><a class="ftp-menu {% block menu_ftp %}{% endblock %}"
-                      href="/ftp">Files</a></li><!--
-
-            --><li><a class="api {% block menu_api %}{% endblock %}"
-                      href="/api">API</a></li><!--
-
-            --><li><a class="rss {% block menu_rss %}{% endblock %}"
-                      href="/rss">RSS</a></li>
+            {% if status == "alpha" %}
+                <a href="/" class="logo">jdan734.me<sup style="color: #d50000;">α</sup></a>
+            {% endif %}
+            </li>
+        </ul>
+        <ul>
+            <li><a class="home" href="/">Home</a></li>
+            <li><a class="wiki" href="/wiki/wikipedia"><s>Wikipedia</s></a></li>
+            <li><a class="memepedia" href="/memepedia">Memepedia</a></li>
         </ul>
     </nav>
 
     {% block body %}
-        <div class="content">
+        <div class="container">
             {% block content %}
             {% endblock %}
         </div>

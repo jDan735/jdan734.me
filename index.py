@@ -1,8 +1,6 @@
-import coloredlogs, logging
-
-from ftp import *
 from server import *
-from app import app
+
+import uvicorn
 
 
 if __name__ == '__main__':
@@ -11,5 +9,5 @@ if __name__ == '__main__':
     # coloredlogs.install(fmt="%(asctime)s %(levelname)s %(message)s",
     #                     level="INFO",
     #                     logger=logger)
-    
-    app.run(port=5050) # debug=True
+
+    uvicorn.run("app:app", port=8080, reload=True)

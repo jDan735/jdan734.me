@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤡 {{ title }}</title>
+
+    <link rel="stylesheet" href="../css/pico.min.css">
+    <link rel="stylesheet" href="../css/test.css?">
+</head>
+<body>
+    <nav class="container-fluid"  {% block nav %}{% endblock %}>
+        <ul>
+            <li>
+        {% if status != "dev" and status != "alpha" %}
+            <a href="/" class="logo">jdan734.me</a>
+        {% endif %}
+
+        {% if status == "dev" %}
+            <a href="/" class="logo">jdan734.me<sup style="color: orange;">β</sup></a><span style="color: transparent">ban</span><a href="example.org" style="color: white; background: black;">memepedia.ru</a>
+        {% endif %}
+
+        {% if status == "alpha" %}
+            <a href="/" class="logo">jdan734.me<sup style="color: #d50000;">α</sup></a>
+        {% endif %}
+    </li>
+</ul>
+        <ul>
+            <li><a class="home" href="/">Home</a></li>
+            <li><a class="wiki" href="/wiki/wikipedia"><s>Wikipedia</s></a></li>
+            <li><a class="memepedia" href="/memepedia">Memepedia</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div class="grid">
+            <section>
+                <h1 style="margin-bottom: 0px;">{{ title }}</h1>
+                <br>
+                <div class="grid">
+                  <div>
+                  <h5 style="display: inline-block;">🧑 {{ author_name }}</h5> <span>{{ time_publication }}</span></div>
+                  <div style="display: inline-block">👁️ {{ views }} 🗨️ {{ comments }}</div>
+                </div>
+                <p>{{ text|safe }}</p>
+            </section>
+            <aside>
+                <h4>⚡️ Популярные мемы</h4>
+                <br>
+                {% for trend in trending %}
+                    <img src="{{ trend.preview }}" alt="{{ trend.title }}"><br>
+                    <span>👁️ {{ trend.views }}</span><br>
+                    <a href="/memepedia{{ trend.url }}">{{ trend.title }}</a>
+                    <br><br>
+                {% endfor %}
+            </aside>
+        </div>
+    </main>
+    <br><br><br><br>
+</body>
+</html>
